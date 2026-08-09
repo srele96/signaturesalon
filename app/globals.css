@@ -22,8 +22,6 @@ body {
   background-color: var(--color-paper);
 }
 
-
-
 .grain::before {
   content: '';
   position: absolute;
@@ -52,7 +50,6 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
-
 }
 
 .hairline {
