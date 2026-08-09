@@ -5,6 +5,13 @@ import { animate, inView } from 'motion';
 
 import Image from 'next/image';
 
+import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
+import workBraidsWithExtensions from '@/assets/work-braids-with-extensions.jpeg';
+import workBrownHairWaves from '@/assets/work-brown-hair-waves.jpeg';
+import workChestnutHairWaves from '@/assets/work-chestnut-hair-waves.jpeg';
+import workStraightCutBlowDry from '@/assets/work-straight-cut-blow-dry.jpeg';
+import jelena from '@/assets/jelena.webp';
+
 export function Home() {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
@@ -196,6 +203,7 @@ export function Home() {
                     src={item.image}
                     alt={item.label}
                     fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1152px) 25vw, 288px"
                     className="object-cover"
                   />
                 </div>
@@ -428,33 +436,33 @@ const SERVICES = [
 const WORK = [
   {
     label: 'Braids with extensions',
-    image: '/image/work-braids-with-extensions.jpeg',
+    image: workBraidsWithExtensions,
   },
   {
     label: 'Straight cut/blow-dry',
-    image: '/image/work-straight-cut-blow-dry.jpeg',
+    image: workStraightCutBlowDry,
   },
   {
     label: 'Brown hair waves',
-    image: '/image/work-brown-hair-waves.jpeg',
+    image: workBrownHairWaves,
   },
   {
     label: 'Black hair waves',
-    image: '/image/work-black-hair-waves.jpeg',
+    image: workBlackHairWaves,
   },
   {
     label: 'Chestnut hair waves',
-    image: '/image/work-chestnut-hair-waves.jpeg',
+    image: workChestnutHairWaves,
   },
 ] satisfies ReadonlyArray<{
   label: string;
-  image: string;
+  image: StaticImageData;
 }>;
 
 const STYLISTS = [
   {
     name: 'Jelena',
     role: 'Cut, color & styling - every service under one chair.',
-    image: '/image/jelena.webp',
+    image: jelena,
   },
 ] as const;
