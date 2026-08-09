@@ -15,14 +15,6 @@ import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
 import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 
-const NAV_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#work', label: 'Work' },
-  { href: '#stylists', label: 'Stylists' },
-  { href: '#about', label: 'About' },
-  { href: '#visit', label: 'Visit' },
-] as const;
-
 export function Home() {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
@@ -504,6 +496,14 @@ export function Home() {
     </div>
   );
 }
+
+const NAV_LINKS = [
+  { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Work' },
+  { href: '#stylists', label: 'Stylists' },
+  { href: '#about', label: 'About' },
+  { href: '#visit', label: 'Visit' },
+] as const;
 
 const SERVICES = [
   {
