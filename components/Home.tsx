@@ -191,10 +191,10 @@ export function Home() {
             Recent work
           </h2>
           <p className="reveal text-paper/60 text-sm mb-14 max-w-md">
-            A handful of finishes from the chair this season.
+            A look at the work coming out of the chair this season.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {WORK.map((item) => (
               <div
                 key={item.label}
@@ -206,7 +206,7 @@ export function Home() {
                     src={item.image}
                     alt={item.label}
                     fill
-                    sizes="(max-width: 768px) 50vw, (max-width: 1152px) 25vw, 288px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
                   />
                 </div>
