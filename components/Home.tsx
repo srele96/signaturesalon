@@ -90,7 +90,7 @@ export function Home() {
       >
         <div className="max-w-6xl mx-auto px-6 md:px-10 pt-40 pb-28 md:pt-52 md:pb-36 relative">
           <p className="text-gold/90 text-xs md:text-sm tracking-[0.3em] uppercase mb-6">
-            Batajnica, Belgrade — by appointment
+            Batajnica, Belgrade - by appointment
           </p>
 
           <h1 className="font-display font-light text-[13vw] md:text-[6.5vw] leading-[0.95] max-w-4xl">
@@ -110,15 +110,16 @@ export function Home() {
             >
               <path
                 ref={sigPathRef}
-                className="signature-path"
                 d="M10 60 C 40 10, 70 10, 85 55 C 95 80, 60 85, 55 60 C 50 30, 90 20, 120 45 C 140 62, 150 30, 175 30 C 210 30, 190 70, 220 65 C 250 60, 240 20, 270 25 C 300 30, 285 65, 310 60 C 335 55, 330 20, 355 30 C 375 38, 370 55, 400 45"
                 stroke="#B08A3E"
                 strokeWidth="3"
                 strokeLinecap="round"
+                strokeDasharray={1400}
+                strokeDashoffset={1400}
               />
             </svg>
             <p className="text-paper/60 text-sm max-w-56">
-              Every appointment ends the same way — with a finish that&rsquo;s
+              Every appointment ends the same way - with a cut that&rsquo;s
               unmistakably yours.
             </p>
           </div>
@@ -151,7 +152,7 @@ export function Home() {
             Services
           </h2>
           <p className="text-taupe text-sm max-w-xs">
-            Priced per consultation — every head of hair is a different brief.
+            Priced per consultation.
           </p>
         </div>
 
@@ -189,7 +190,7 @@ export function Home() {
                 key={item.label}
                 className={`reveal rounded-lg overflow-hidden flex flex-col bg-paper/3 ring-1 ring-paper/10`}
               >
-                {/* image zone — nothing overlaid on it */}
+                {/* image zone - nothing overlaid on it */}
                 <div className="relative aspect-3/4">
                   <Image
                     src={item.image}
@@ -199,7 +200,7 @@ export function Home() {
                   />
                 </div>
 
-                {/* caption zone — its own space, clear of the photo */}
+                {/* caption zone - its own space, clear of the photo */}
                 <div className="px-4 py-3">
                   <span className="font-sans text-sm md:text-base tracking-wide text-paper/80">
                     {item.label}
@@ -255,7 +256,7 @@ export function Home() {
               Reserve your <span className="text-gold">chair</span>.
             </h2>
             <p className="text-paper/60 text-sm max-w-sm mx-auto">
-              Tell us what you&rsquo;re after and when suits you — we&rsquo;ll
+              Tell us what you&rsquo;re after and when suits you - we&rsquo;ll
               confirm within the day.
             </p>
           </div>
@@ -272,7 +273,7 @@ export function Home() {
               063 742 7750
             </a>
             <p className="text-paper/50 text-sm mb-6">
-              Mon–Sat, 11:00–20:00 — call and we&rsquo;ll find you a chair.
+              Mon–Sat, 11:00–20:00 - call and we&rsquo;ll find you a chair.
             </p>
             <a
               href="tel:+381637427750"
@@ -287,7 +288,7 @@ export function Home() {
             <div className="reveal bg-paper/5 border border-paper/15 rounded-2xl p-8">
               <h3 className="font-display text-2xl mb-3">Book on WhatsApp</h3>
               <p className="text-paper/60 text-sm mb-6">
-                Send us a message with your preferred service and date —
+                Send us a message with your preferred service and date -
                 we&rsquo;ll reply to confirm your slot.
               </p>
               <a
@@ -379,33 +380,42 @@ export function Home() {
 
 const SERVICES = [
   {
-    name: 'Cut & Finish',
-    detail: 'Consultation, wash, precision cut, blow-dry styling.',
-    price: 'from 2.500 din',
+    name: 'Haircut & Blow-Dry',
+    detail:
+      'Consultation, wash, precision cut, and finishing blow-dry - short to long hair.',
+    price: 'from 1.000 din',
     wide: false,
   },
   {
-    name: 'Color & Balayage',
-    detail: 'Full color, root touch-up, or hand-painted balayage.',
-    price: 'from 5.000 din',
+    name: 'Styling & Occasion Hair',
+    detail: 'Iron styling, updos, and braids for events and special occasions.',
+    price: 'from 1.000 din',
     wide: false,
   },
   {
-    name: 'Keratin Treatment',
-    detail: 'Smoothing treatment for frizz-free, glass-finish hair.',
-    price: 'from 8.000 din',
+    name: 'Color - Revlon Professional',
+    detail:
+      'Full color with Revlon Color Sublime, toning, or gloss - priced by length.',
+    price: 'from 2.200 din',
     wide: false,
   },
   {
-    name: 'Bridal & Occasion',
-    detail: 'Trial included. Styling that holds through the whole night.',
-    price: 'from 6.500 din',
+    name: 'Balayage & Lightening',
+    detail: 'Bleach, balayage, ombre, or color correction with Magnet Blondes.',
+    price: 'from 3.500 din',
+    wide: false,
+  },
+  {
+    name: 'Bond Repair & Care Rituals',
+    detail:
+      'Bond-repair, UniqOne, and Equave hydrating treatments for damaged hair.',
+    price: 'from 1.000 din',
     wide: false,
   },
   {
     name: "Men's Grooming",
-    detail: 'Cut, beard shape, and hot towel finish.',
-    price: 'from 1.800 din',
+    detail: 'Cut, clipper work, beard shape, and wash & style finish.',
+    price: 'from 400 din',
     wide: true,
   },
 ] as const satisfies ReadonlyArray<{
@@ -444,7 +454,7 @@ const WORK = [
 const STYLISTS = [
   {
     name: 'Jelena',
-    role: 'Cut, color & styling — every service under one chair.',
+    role: 'Cut, color & styling - every service under one chair.',
     image: '/image/jelena.webp',
   },
 ] as const;

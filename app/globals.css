@@ -22,10 +22,7 @@ body {
   background-color: var(--color-paper);
 }
 
-.signature-path {
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
-}
+
 
 .grain::before {
   content: '';
@@ -55,9 +52,7 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
-  .signature-path {
-    stroke-dashoffset: 0 !important;
-  }
+
 }
 
 .hairline {
