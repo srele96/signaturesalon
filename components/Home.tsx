@@ -155,8 +155,9 @@ export function Home() {
           </p>
 
           <h1 className="font-display font-light text-[13vw] md:text-[6.5vw] leading-[0.95] max-w-4xl">
-            A cut that carries <br className="hidden md:block" />
-            your{' '}
+            {'A cut that carries '}
+            <br className="hidden md:block" />
+            {'your '}
             <em className="italic text-gold not-italic-fallback">signature</em>.
           </h1>
 
