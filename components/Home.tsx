@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { animate, inView } from 'motion';
 
 import Image, { type StaticImageData } from 'next/image';
@@ -15,9 +15,18 @@ import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
 import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 
+const NAV_LINKS = [
+  { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Work' },
+  { href: '#stylists', label: 'Stylists' },
+  { href: '#about', label: 'About' },
+  { href: '#visit', label: 'Visit' },
+] as const;
+
 export function Home() {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -67,29 +76,79 @@ export function Home() {
           <a href="#top" className="font-display text-lg tracking-tight">
             Signature <span className="text-gold">Salon</span>
           </a>
+
           <nav className="hidden md:flex items-center gap-8 text-sm tracking-wide text-ink/70">
-            <a href="#services" className="hover:text-ink transition-colors">
-              Services
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-ink transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="#book"
+              className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
+            >
+              Book a chair
             </a>
-            <a href="#work" className="hover:text-ink transition-colors">
-              Work
-            </a>
-            <a href="#stylists" className="hover:text-ink transition-colors">
-              Stylists
-            </a>
-            <a href="#about" className="hover:text-ink transition-colors">
-              About
-            </a>
-            <a href="#visit" className="hover:text-ink transition-colors">
-              Visit
+
+            {/* Hamburger - mobile only */}
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              className="md:hidden relative w-10 h-10 flex items-center justify-center"
+            >
+              <span
+                className={`absolute h-px w-6 bg-ink transition-all duration-300 ${
+                  isMenuOpen ? 'rotate-45' : '-translate-y-1.5'
+                }`}
+              />
+              <span
+                className={`absolute h-px w-6 bg-ink transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}
+              />
+              <span
+                className={`absolute h-px w-6 bg-ink transition-all duration-300 ${
+                  isMenuOpen ? '-rotate-45' : 'translate-y-1.5'
+                }`}
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu panel */}
+        <div
+          className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out bg-paper border-t border-ink/10 ${
+            isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <nav className="flex flex-col px-6 py-4 gap-1">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="py-3 text-base text-ink/80 hover:text-ink transition-colors border-b border-ink/5 last:border-0"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#book"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-4 text-center text-sm px-4 py-3 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
+            >
+              Book a chair
             </a>
           </nav>
-          <a
-            href="#book"
-            className="text-sm px-4 py-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
-          >
-            Book a chair
-          </a>
         </div>
       </header>
 
