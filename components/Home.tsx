@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { animate, inView } from 'motion';
 
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 
 import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
 import workBraidsWithExtensions from '@/assets/work-braids-with-extensions.jpeg';
@@ -11,6 +11,9 @@ import workBrownHairWaves from '@/assets/work-brown-hair-waves.jpeg';
 import workChestnutHairWaves from '@/assets/work-chestnut-hair-waves.jpeg';
 import workStraightCutBlowDry from '@/assets/work-straight-cut-blow-dry.jpeg';
 import jelena from '@/assets/jelena.webp';
+import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
+import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
+import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 
 export function Home() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -74,7 +77,7 @@ export function Home() {
             <a href="#stylists" className="hover:text-ink transition-colors">
               Stylists
             </a>
-            <a href="/about" className="hover:text-ink transition-colors">
+            <a href="#about" className="hover:text-ink transition-colors">
               About
             </a>
             <a href="#visit" className="hover:text-ink transition-colors">
@@ -250,6 +253,63 @@ export function Home() {
               <p className="text-taupe text-sm">{stylist.role}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ===== ABOUT / INTERIOR ===== */}
+      <section id="about" className="bg-wine text-paper py-24 md:py-32">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
+          <div className="grid md:grid-cols-2 gap-14 md:gap-10 items-center">
+            <div className="reveal">
+              <h2 className="font-display text-4xl md:text-5xl font-light mb-8">
+                Built one detail at a time
+              </h2>
+              <div className="space-y-5 text-paper/70 text-base md:text-lg leading-relaxed">
+                <p>
+                  Signature Salon opened in Batajnica with one idea: a chair
+                  should feel considered, not rushed. Marble floors, warm light,
+                  and fresh flowers greet every appointment - not for show, but
+                  because the space you sit in shapes the cut you leave with.
+                </p>
+                <p>
+                  Every visit starts with a conversation, not a template.
+                  Whether it&rsquo;s a precision blow-dry or a full color
+                  correction, the same care goes into the smallest details as
+                  the biggest changes.
+                </p>
+              </div>
+            </div>
+            <div className="reveal relative aspect-4/5 rounded-lg overflow-hidden">
+              <Image
+                src={interiorSignatureWall}
+                alt="Signature Salon wall lettering and entrance"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="reveal grid md:grid-cols-2 gap-4 md:gap-6 mt-14 md:mt-20">
+            <div className="relative aspect-3/4 rounded-lg overflow-hidden">
+              <Image
+                src={interiorFloralsWide}
+                alt="Fresh floral arrangement at Signature Salon entrance"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="relative aspect-3/4 rounded-lg overflow-hidden">
+              <Image
+                src={interiorFloralsClose}
+                alt="Fresh floral detail at Signature Salon"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
