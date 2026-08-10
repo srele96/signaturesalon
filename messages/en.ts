@@ -2,7 +2,8 @@ import type { Messages } from './types';
 
 const messages: Messages = {
   metadata: {
-    title: 'Signature Salon (EN)',
+    title: 'Signature Salon',
+    description: 'A cut that carries your signature.',
   },
   header: {
     brand: 'Signature',

@@ -8,9 +8,9 @@
   --color-wine: #5c1626;
   --color-taupe: #a0907c;
 
-  --font-display: 'Fraunces Variable', serif;
-  --font-script: 'Homemade Apple', cursive;
-  --font-body: 'Work Sans Variable', sans-serif;
+  --font-display: var(--app-font-display);
+  --font-script: var(--app-font-script);
+  --font-body: var(--app-font-body);
 }
 
 /* ── The <style> block from the HTML page ── */

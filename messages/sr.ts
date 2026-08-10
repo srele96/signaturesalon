@@ -3,6 +3,7 @@ import type { Messages } from './types';
 const messages: Messages = {
   metadata: {
     title: 'Signature Salon (SR)',
+    description: 'Šišanje koje nosi vaš potpis',
   },
   header: {
     brand: 'Signature',

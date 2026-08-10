@@ -1,6 +1,7 @@
 interface Messages {
   metadata: {
     title: string;
+    description: string;
   };
   header: {
     brand: string;

@@ -1,23 +1,25 @@
 import type { Metadata } from 'next';
-import '@fontsource-variable/fraunces/full.css';
-import '@fontsource-variable/fraunces/full-italic.css';
-import '@fontsource-variable/work-sans';
-import '@fontsource/homemade-apple';
-import './globals.css';
-
 import messages, {
   hrefFor,
   languageAlternates,
   defaultLocale,
   type Locale,
 } from '@/messages';
+import { url } from '@/url';
+
+// import '@fontsource-variable/fraunces/full';
+// import '@fontsource-variable/fraunces/full-italic.css';
+// import '@fontsource-variable/work-sans';
+// import '@fontsource/homemade-apple';
+import './globals.css';
 
 const locale: Locale = defaultLocale;
 const t = messages[locale];
 
 export const metadata: Metadata = {
+  metadataBase: url(),
   title: t.metadata.title,
-  description: 'A cut that carries your signature.',
+  description: t.metadata.description,
   manifest: '/site.webmanifest',
   icons: {
     icon: [

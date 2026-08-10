@@ -83,7 +83,7 @@ export function Home({ translations: t, locale }: Props) {
             </span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm tracking-wide text-ink/70">
+          <nav className="hidden lg:flex items-center gap-8 text-sm tracking-wide text-ink/70">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -110,7 +110,7 @@ export function Home({ translations: t, locale }: Props) {
               onClick={() => setIsMenuOpen((open) => !open)}
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? t.header.menuClose : t.header.menuOpen}
-              className="md:hidden relative w-10 h-10 flex items-center justify-center"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center"
             >
               <span
                 className={`absolute h-px w-6 bg-ink transition-all duration-300 ${

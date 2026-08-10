@@ -6,6 +6,7 @@ import messages, {
   hrefFor,
   languageAlternates,
 } from '@/messages';
+import { url } from '@/url';
 
 type Props = {
   children: React.ReactNode;
@@ -26,7 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = messages[locale];
 
   return {
+    metadataBase: url(),
     title: t.metadata.title,
+    description: t.metadata.description,
     alternates: {
       canonical: hrefFor(locale),
       languages: languageAlternates(),
