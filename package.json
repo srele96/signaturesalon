@@ -6,7 +6,8 @@
     "dev": "cross-env PORT=3000 next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postbuild": "node -r dotenv/config ./postbuild.mjs dotenv_config_path=.env.production"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",
@@ -24,6 +25,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
