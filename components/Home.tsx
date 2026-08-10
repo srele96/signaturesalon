@@ -15,7 +15,13 @@ import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
 import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 
-export function Home() {
+import type { Messages } from '@/messages';
+
+interface Props {
+  t: Messages;
+}
+
+export function Home({ t }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

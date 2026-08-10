@@ -5,8 +5,13 @@ import '@fontsource-variable/work-sans';
 import '@fontsource/homemade-apple';
 import './globals.css';
 
+import messages, { type Locale } from '@/messages';
+
+const locale: Locale = 'sr';
+const t = messages[locale];
+
 export const metadata: Metadata = {
-  title: 'Signature Salon',
+  title: t.metadata.title,
   description: 'A cut that carries your signature.',
   manifest: '/site.webmanifest',
   icons: {
@@ -18,12 +23,15 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  alternates: {
+    canonical: locale === 'sr' ? '/' : `/${locale}`,
+    languages: {
+      sr: '/',
+      en: '/en',
+    },
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
-  return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
+export default async function RootLayout({ children }: LayoutProps<'/'>) {
+  return children;
 }
