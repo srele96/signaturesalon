@@ -26,7 +26,7 @@ const messages: Messages = {
     headingSignature: 'signature',
     sigCaption:
       'Every appointment ends the same way - with a cut ' +
-      'that\u2019s unmistakably yours.',
+      "that's unmistakably yours.",
     bookAction: 'Book a chair',
     seeServices: 'See services',
   },
@@ -38,7 +38,7 @@ const messages: Messages = {
       haircut: {
         name: 'Haircut & Blow-Dry',
         detail:
-          'Consultation, wash, precision cut, and finishing blow-dry \u2014 short to long hair.',
+          'Consultation, wash, precision cut, and finishing blow-dry - short to long hair.',
       },
       styling: {
         name: 'Styling & Occasion Hair',
@@ -46,9 +46,9 @@ const messages: Messages = {
           'Iron styling, updos, and braids for events and special occasions.',
       },
       color: {
-        name: 'Color \u2014 Revlon Professional',
+        name: 'Color - Revlon Professional',
         detail:
-          'Full color with Revlon Color Sublime, toning, or gloss \u2014 priced by length.',
+          'Full color with Revlon Color Sublime, toning, or gloss - priced by length.',
       },
       balayage: {
         name: 'Balayage & Lightening',
@@ -61,7 +61,7 @@ const messages: Messages = {
           'Bond-repair, UniqOne, and Equave hydrating treatments for damaged hair.',
       },
       mensGrooming: {
-        name: 'Men\u2019s Grooming',
+        name: "Men's Grooming",
         detail: 'Cut, clipper work, beard shape, and wash & style finish.',
       },
     },
@@ -94,7 +94,7 @@ const messages: Messages = {
       'in shapes the cut you leave with.',
     paragraph2:
       'Every visit starts with a conversation, not a template. Whether ' +
-      'it\u2019s a precision blow-dry or a full color correction, the ' +
+      "it's a precision blow-dry or a full color correction, the " +
       'same care goes into the smallest details as the biggest changes.',
     wallImageAlt: 'Signature Salon wall lettering and entrance',
     floralsWideAlt: 'Fresh floral arrangement at Signature Salon entrance',
@@ -104,15 +104,14 @@ const messages: Messages = {
     headingPrefix: 'Reserve your ',
     headingChair: 'chair',
     subheading:
-      'Tell us what you\u2019re after and when suits you - we\u2019ll confirm ' +
+      "Tell us what you're after and when suits you - we'll confirm " +
       'within the day.',
     fastestWay: 'Fastest way to book',
-    phoneHours:
-      'Mon\u2013Sat, 11:00\u201320:00 - call and we\u2019ll find you a chair.',
+    phoneHours: "Mon-Sat, 11:00-20:00 - call and we'll find you a chair.",
     callNow: 'Call now',
     whatsappHeading: 'Book on WhatsApp',
     whatsappBody:
-      'Send us a message with your preferred service and date - we\u2019ll ' +
+      "Send us a message with your preferred service and date - we'll " +
       'reply to confirm your slot.',
     whatsappCta: 'Message us on WhatsApp',
     whatsappMessage:
@@ -124,7 +123,7 @@ const messages: Messages = {
   footer: {
     addressHeading: 'Signature Salon',
     hoursHeading: 'Hours',
-    hoursLine: 'Mon\u2013Sat, 11:00\u201320:00',
+    hoursLine: 'Mon-Sat, 11:00-20:00',
     closedSunday: 'Closed Sunday',
     contactHeading: 'Contact',
     copyright: '© 2026 Signature Salon. All rights reserved.',

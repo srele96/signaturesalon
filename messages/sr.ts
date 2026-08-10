@@ -37,16 +37,16 @@ const messages: Messages = {
       haircut: {
         name: 'Šišanje i feniranje',
         detail:
-          'Konsultacije, pranje, precizno šišanje i završno feniranje \u2014 za kratku i dugu kosu.',
+          'Konsultacije, pranje, precizno šišanje i završno feniranje - za kratku i dugu kosu.',
       },
       styling: {
         name: 'Stilizovanje i svečane frizure',
         detail: 'Peglanje, punđe i pletenice za događaje i posebne prilike.',
       },
       color: {
-        name: 'Farbanje \u2014 Revlon Professional',
+        name: 'Farbanje - Revlon Professional',
         detail:
-          'Kompletno farbanje Revlon Color Sublime, toniranje ili glos \u2014 cena zavisi od dužine kose.',
+          'Kompletno farbanje Revlon Color Sublime, toniranje ili glos - cena zavisi od dužine kose.',
       },
       balayage: {
         name: 'Balayage i posvetljivanje',
