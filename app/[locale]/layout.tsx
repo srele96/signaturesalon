@@ -1,6 +1,11 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import messages, { locales, hasLocale } from '@/messages';
+import messages, {
+  locales,
+  hasLocale,
+  hrefFor,
+  languageAlternates,
+} from '@/messages';
 
 type Props = {
   children: React.ReactNode;
@@ -23,11 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t.metadata.title,
     alternates: {
-      canonical: locale === 'sr' ? '/' : `/${locale}`,
-      languages: {
-        sr: '/',
-        en: '/en',
-      },
+      canonical: hrefFor(locale),
+      languages: languageAlternates(),
     },
   };
 }

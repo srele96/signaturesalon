@@ -15,13 +15,15 @@ import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
 import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 
-import type { Messages } from '@/messages';
+import type { Messages, Locale } from '@/messages';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface Props {
-  t: Messages;
+  translations: Messages;
+  locale: Locale;
 }
 
-export function Home({ t }: Props) {
+export function Home({ translations, locale }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -88,6 +90,7 @@ export function Home({ t }: Props) {
           </nav>
 
           <div className="flex items-center gap-3">
+            <LanguageSwitcher locale={locale} />
             <a
               href="#book"
               className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors"

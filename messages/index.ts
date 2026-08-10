@@ -10,6 +10,20 @@ type Locale = keyof Translations;
 
 export default messages;
 
+export const defaultLocale: Locale = 'sr';
+
+export function hrefFor(locale: Locale): string {
+  return locale === defaultLocale ? '/' : `/${locale}`;
+}
+
+// TODO: Improve type 'sr': '/', 'en': '/en', etc
+export function languageAlternates(): Record<Locale, string> {
+  return Object.fromEntries(locales().map((l) => [l, hrefFor(l)])) as Record<
+    Locale,
+    string
+  >;
+}
+
 export function locales() {
   return Object.keys(messages) as Locale[];
 }

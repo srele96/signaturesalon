@@ -1,8 +1,7 @@
 import { Home } from '@/components/Home';
 import { notFound } from 'next/navigation';
-import { hasLocale } from '@/messages';
-
-import messages from '@/messages';
+import messages, { hasLocale } from '@/messages';
+import { WithHtml } from '@/components/WithHtml';
 
 export default async function Page({
   params,
@@ -18,10 +17,8 @@ export default async function Page({
   const translations = messages[locale];
 
   return (
-    <html lang={locale} className="h-full antialiased">
-      <body className="min-h-full flex flex-col">
-        {<Home t={translations} />}
-      </body>
-    </html>
+    <WithHtml locale={locale}>
+      <Home translations={translations} locale={locale} />
+    </WithHtml>
   );
 }

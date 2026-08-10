@@ -1,16 +1,15 @@
 import { Home } from '@/components/Home';
+import { WithHtml } from '@/components/WithHtml';
+import messages, { type Locale, defaultLocale } from '@/messages';
 
-const locale: Locale = 'sr';
-import messages, { type Locale } from '@/messages';
+const locale: Locale = defaultLocale;
 
 export default function Page() {
   const translations = messages['sr'];
 
   return (
-    <html lang={locale} className="h-full antialiased">
-      <body className="min-h-full flex flex-col">
-        {<Home t={translations} />}
-      </body>
-    </html>
+    <WithHtml locale={locale}>
+      <Home translations={translations} locale={locale} />
+    </WithHtml>
   );
 }

@@ -5,9 +5,14 @@ import '@fontsource-variable/work-sans';
 import '@fontsource/homemade-apple';
 import './globals.css';
 
-import messages, { type Locale } from '@/messages';
+import messages, {
+  hrefFor,
+  languageAlternates,
+  defaultLocale,
+  type Locale,
+} from '@/messages';
 
-const locale: Locale = 'sr';
+const locale: Locale = defaultLocale;
 const t = messages[locale];
 
 export const metadata: Metadata = {
@@ -23,12 +28,13 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  // For SEO each page needs to have canonical tag and link to its own
+  // canonical page
+  // If a page itself is canonical, it refers to itself, otherwise (for now)
+  // /sr canonical page is /
   alternates: {
-    canonical: locale === 'sr' ? '/' : `/${locale}`,
-    languages: {
-      sr: '/',
-      en: '/en',
-    },
+    canonical: hrefFor(locale),
+    languages: languageAlternates(),
   },
 };
 
