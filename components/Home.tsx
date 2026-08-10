@@ -3,7 +3,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate, inView } from 'motion';
 import Image, { type StaticImageData } from 'next/image';
-import type { Messages, Locale } from '@/messages';
+import {
+  type Messages,
+  type Locale,
+  type MessagePath,
+  translate,
+} from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
@@ -21,7 +26,7 @@ interface Props {
   locale: Locale;
 }
 
-export function Home({ translations, locale }: Props) {
+export function Home({ translations: t, locale }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,7 +77,10 @@ export function Home({ translations, locale }: Props) {
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-sm bg-paper/80 border-b border-ink/10">
         <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <a href="#top" className="font-display text-lg tracking-tight">
-            Signature <span className="text-gold">Salon</span>
+            {translate(t, 'header.brand')}{' '}
+            <span className="text-gold">
+              {translate(t, 'header.brandAccent')}
+            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-sm tracking-wide text-ink/70">
@@ -82,7 +90,7 @@ export function Home({ translations, locale }: Props) {
                 href={link.href}
                 className="hover:text-ink transition-colors"
               >
-                {link.label}
+                {translate(t, link.key)}
               </a>
             ))}
           </nav>
@@ -93,7 +101,7 @@ export function Home({ translations, locale }: Props) {
               href="#book"
               className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
             >
-              Book a chair
+              {translate(t, 'header.bookAction')}
             </a>
 
             {/* Hamburger - mobile only */}
@@ -101,7 +109,7 @@ export function Home({ translations, locale }: Props) {
               type="button"
               onClick={() => setIsMenuOpen((open) => !open)}
               aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={isMenuOpen ? t.header.menuClose : t.header.menuOpen}
               className="md:hidden relative w-10 h-10 flex items-center justify-center"
             >
               <span
@@ -137,7 +145,7 @@ export function Home({ translations, locale }: Props) {
                 onClick={() => setIsMenuOpen(false)}
                 className="py-3 text-base text-ink/80 hover:text-ink transition-colors border-b border-ink/5 last:border-0"
               >
-                {link.label}
+                {translate(t, link.key)}
               </a>
             ))}
             <a
@@ -145,7 +153,7 @@ export function Home({ translations, locale }: Props) {
               onClick={() => setIsMenuOpen(false)}
               className="mt-4 text-center text-sm px-4 py-3 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
             >
-              Book a chair
+              {translate(t, 'header.bookAction')}
             </a>
           </nav>
         </div>
@@ -158,14 +166,17 @@ export function Home({ translations, locale }: Props) {
       >
         <div className="max-w-6xl mx-auto px-6 md:px-10 pt-40 pb-28 md:pt-52 md:pb-36 relative">
           <p className="text-gold/90 text-xs md:text-sm tracking-[0.3em] uppercase mb-6">
-            Batajnica, Belgrade - by appointment
+            {t.hero.eyebrow}
           </p>
 
           <h1 className="font-display font-light text-[13vw] md:text-[6.5vw] leading-[0.95] max-w-4xl">
-            {'A cut that carries '}
+            {`${t.hero.headingPrefix} `}
             <br className="hidden md:block" />
-            {'your '}
-            <em className="italic text-gold not-italic-fallback">signature</em>.
+            {`${t.hero.headingYour} `}
+            <em className="italic text-gold not-italic-fallback">
+              {t.hero.headingSignature}
+            </em>
+            .
           </h1>
 
           <div className="mt-10 flex items-center gap-6">
@@ -187,8 +198,7 @@ export function Home({ translations, locale }: Props) {
               />
             </svg>
             <p className="text-paper/60 text-sm max-w-56">
-              Every appointment ends the same way - with a cut that&rsquo;s
-              unmistakably yours.
+              {t.hero.sigCaption}
             </p>
           </div>
 
@@ -197,13 +207,13 @@ export function Home({ translations, locale }: Props) {
               href="#book"
               className="px-6 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:bg-paper transition-colors"
             >
-              Book a chair
+              {t.hero.bookAction}
             </a>
             <a
               href="#services"
               className="px-6 py-3 rounded-full border border-paper/30 text-sm hover:border-gold hover:text-gold transition-colors"
             >
-              See services
+              {t.hero.seeServices}
             </a>
           </div>
         </div>
@@ -217,28 +227,33 @@ export function Home({ translations, locale }: Props) {
       >
         <div className="reveal flex items-end justify-between mb-14 flex-wrap gap-4">
           <h2 className="font-display text-4xl md:text-5xl font-light">
-            Services
+            {t.services.heading}
           </h2>
-          <p className="text-taupe text-sm max-w-xs">
-            Priced per consultation.
-          </p>
+          <p className="text-taupe text-sm max-w-xs">{t.services.subheading}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-16">
-          {SERVICES.map((service) => (
-            <div
-              key={service.name}
-              className={`reveal border-t border-ink/15 py-6 flex justify-between items-baseline ${service.wide ? 'border-b md:col-span-2' : ''}`}
-            >
-              <div>
-                <h3 className="font-display text-xl">{service.name}</h3>
-                <p className="text-taupe text-sm mt-1">{service.detail}</p>
+          {SERVICES.map((service) => {
+            const item = t.services.items[service.key];
+            return (
+              <div
+                key={service.key}
+                className={`reveal border-t border-ink/15 py-6 flex justify-between items-baseline ${
+                  service.wide ? 'border-b md:col-span-2' : ''
+                }`}
+              >
+                <div>
+                  <h3 className="font-display text-xl">{item.name}</h3>
+                  <p className="text-taupe text-sm mt-1">{item.detail}</p>
+                </div>
+                <span className="text-gold text-sm whitespace-nowrap ml-6">
+                  {translate(t, 'services.price', {
+                    amount: service.fromAmount,
+                  })}
+                </span>
               </div>
-              <span className="text-gold text-sm whitespace-nowrap ml-6">
-                {service.price}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -246,33 +261,31 @@ export function Home({ translations, locale }: Props) {
       <section id="work" className="bg-wine text-paper py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <h2 className="reveal font-display text-4xl md:text-5xl font-light mb-3">
-            Recent work
+            {t.work.heading}
           </h2>
           <p className="reveal text-paper/60 text-sm mb-14 max-w-md">
-            A look at the work coming out of the chair this season.
+            {t.work.subheading}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {WORK.map((item) => (
               <div
-                key={item.label}
-                className={`reveal rounded-lg overflow-hidden flex flex-col bg-paper/3 ring-1 ring-paper/10`}
+                key={item.key}
+                className="reveal rounded-lg overflow-hidden flex flex-col bg-paper/3 ring-1 ring-paper/10"
               >
-                {/* image zone - nothing overlaid on it */}
                 <div className="relative aspect-3/4">
                   <Image
                     src={item.image}
-                    alt={item.label}
+                    alt={t.work.items[item.key]}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
                   />
                 </div>
 
-                {/* caption zone - its own space, clear of the photo */}
                 <div className="px-4 py-3">
                   <span className="font-sans text-sm md:text-base tracking-wide text-paper/80">
-                    {item.label}
+                    {t.work.items[item.key]}
                   </span>
                 </div>
               </div>
@@ -287,11 +300,11 @@ export function Home({ translations, locale }: Props) {
         className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
       >
         <h2 className="reveal font-display text-4xl md:text-5xl font-light mb-14 text-center">
-          Behind the chair
+          {translate(t, 'stylists.heading')}
         </h2>
         <div className="max-w-xs mx-auto">
           {STYLISTS.map((stylist) => (
-            <div key={stylist.name} className="reveal text-center">
+            <div key={stylist.key} className="reveal text-center">
               <div className="aspect-square rounded-full bg-ink/8 mb-5 overflow-hidden flex items-center justify-center">
                 {stylist.image ? (
                   <Image
@@ -308,7 +321,7 @@ export function Home({ translations, locale }: Props) {
                 )}
               </div>
               <h3 className="font-display text-lg">{stylist.name}</h3>
-              <p className="text-taupe text-sm">{stylist.role}</p>
+              <p className="text-taupe text-sm">{translate(t, stylist.key)}</p>
             </div>
           ))}
         </div>
@@ -320,27 +333,17 @@ export function Home({ translations, locale }: Props) {
           <div className="grid md:grid-cols-2 gap-14 md:gap-10 items-center">
             <div className="reveal">
               <h2 className="font-display text-4xl md:text-5xl font-light mb-8">
-                Built one detail at a time
+                {t.about.heading}
               </h2>
               <div className="space-y-5 text-paper/70 text-base md:text-lg leading-relaxed">
-                <p>
-                  Signature Salon opened in Batajnica with one idea: a chair
-                  should feel considered, not rushed. Marble floors, warm light,
-                  and fresh flowers greet every appointment - not for show, but
-                  because the space you sit in shapes the cut you leave with.
-                </p>
-                <p>
-                  Every visit starts with a conversation, not a template.
-                  Whether it&rsquo;s a precision blow-dry or a full color
-                  correction, the same care goes into the smallest details as
-                  the biggest changes.
-                </p>
+                <p>{t.about.paragraph1}</p>
+                <p>{t.about.paragraph2}</p>
               </div>
             </div>
             <div className="reveal relative aspect-4/5 rounded-lg overflow-hidden">
               <Image
                 src={interiorSignatureWall}
-                alt="Signature Salon wall lettering and entrance"
+                alt={t.about.wallImageAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -352,7 +355,7 @@ export function Home({ translations, locale }: Props) {
             <div className="relative aspect-3/4 rounded-lg overflow-hidden">
               <Image
                 src={interiorFloralsWide}
-                alt="Fresh floral arrangement at Signature Salon entrance"
+                alt={t.about.floralsWideAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-top"
@@ -361,7 +364,7 @@ export function Home({ translations, locale }: Props) {
             <div className="relative aspect-3/4 rounded-lg overflow-hidden">
               <Image
                 src={interiorFloralsClose}
-                alt="Fresh floral detail at Signature Salon"
+                alt={t.about.floralsCloseAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-top"
@@ -379,18 +382,18 @@ export function Home({ translations, locale }: Props) {
         <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32 relative">
           <div className="reveal text-center mb-14">
             <h2 className="font-display text-4xl md:text-5xl font-light leading-tight mb-6">
-              Reserve your <span className="text-gold">chair</span>.
+              {t.book.headingPrefix}
+              <span className="text-gold">{t.book.headingChair}</span>.
             </h2>
             <p className="text-paper/60 text-sm max-w-sm mx-auto">
-              Tell us what you&rsquo;re after and when suits you - we&rsquo;ll
-              confirm within the day.
+              {t.book.subheading}
             </p>
           </div>
 
           {/* Primary CTA: phone */}
           <div className="reveal max-w-xl mx-auto mb-10 text-center border border-gold/30 rounded-2xl p-10 bg-gold/5">
             <p className="text-gold/90 text-xs tracking-[0.3em] uppercase mb-4">
-              Fastest way to book
+              {t.book.fastestWay}
             </p>
             <a
               href="tel:+381637427750"
@@ -398,41 +401,39 @@ export function Home({ translations, locale }: Props) {
             >
               063 742 7750
             </a>
-            <p className="text-paper/50 text-sm mb-6">
-              Mon–Sat, 11:00–20:00 - call and we&rsquo;ll find you a chair.
-            </p>
+            <p className="text-paper/50 text-sm mb-6">{t.book.phoneHours}</p>
             <a
               href="tel:+381637427750"
               className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:bg-paper transition-colors"
             >
-              Call now
+              {t.book.callNow}
             </a>
           </div>
 
           {/* Secondary: WhatsApp + Instagram */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="reveal bg-paper/5 border border-paper/15 rounded-2xl p-8">
-              <h3 className="font-display text-2xl mb-3">Book on WhatsApp</h3>
+              <h3 className="font-display text-2xl mb-3">
+                {t.book.whatsappHeading}
+              </h3>
               <p className="text-paper/60 text-sm mb-6">
-                Send us a message with your preferred service and date -
-                we&rsquo;ll reply to confirm your slot.
+                {t.book.whatsappBody}
               </p>
               <a
-                href="https://wa.me/381637427750?text=Hi!%20I%20would%20like%20to%20book%20an%20appointment%20at%20Signature%20Salon."
+                href={`https://wa.me/381637427750?text=${encodeURIComponent(t.book.whatsappMessage)}`}
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-ink text-sm font-medium hover:opacity-90 transition-opacity"
               >
-                Message us on WhatsApp
+                {t.book.whatsappCta}
               </a>
             </div>
 
             <div className="reveal bg-paper/5 border border-paper/15 rounded-2xl p-8">
               <h3 className="font-display text-2xl mb-3">
-                Follow on Instagram
+                {t.book.instagramHeading}
               </h3>
               <p className="text-paper/60 text-sm mb-6">
-                See our latest work, behind-the-chair moments, and booking
-                openings.
+                {t.book.instagramBody}
               </p>
               <a
                 href="https://instagram.com/signaturebatajnica"
@@ -452,7 +453,9 @@ export function Home({ translations, locale }: Props) {
         className="max-w-6xl mx-auto px-6 md:px-10 py-16 grid sm:grid-cols-3 gap-10 text-sm"
       >
         <div>
-          <h3 className="font-display text-lg mb-3">Signature Salon</h3>
+          <h3 className="font-display text-lg mb-3">
+            {t.footer.addressHeading}
+          </h3>
           <p className="text-taupe">
             Majora Zorana Radosavljevića 205
             <br />
@@ -460,16 +463,18 @@ export function Home({ translations, locale }: Props) {
           </p>
         </div>
         <div>
-          <h3 className="font-display text-lg mb-3">Hours</h3>
+          <h3 className="font-display text-lg mb-3">{t.footer.hoursHeading}</h3>
           <p className="text-taupe">
-            Mon–Sat, 11:00–20:00
+            {t.footer.hoursLine}
             <br />
-            Closed Sunday
+            {t.footer.closedSunday}
           </p>
         </div>
 
         <div>
-          <h3 className="font-display text-lg mb-3">Contact</h3>
+          <h3 className="font-display text-lg mb-3">
+            {t.footer.contactHeading}
+          </h3>
           <p className="text-taupe mb-2">
             <a
               href="tel:+381637427750"
@@ -498,97 +503,55 @@ export function Home({ translations, locale }: Props) {
       </footer>
       <div className="hairline max-w-6xl mx-auto" />
       <p className="text-center text-xs text-taupe py-6">
-        © 2026 Signature Salon. All rights reserved.
+        {t.footer.copyright}
       </p>
     </div>
   );
 }
 
 const NAV_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#work', label: 'Work' },
-  { href: '#stylists', label: 'Stylists' },
-  { href: '#about', label: 'About' },
-  { href: '#visit', label: 'Visit' },
-] as const;
+  { href: '#services', key: 'header.nav.services' },
+  { href: '#work', key: 'header.nav.work' },
+  { href: '#stylists', key: 'header.nav.stylists' },
+  { href: '#about', key: 'header.nav.about' },
+  { href: '#visit', key: 'header.nav.visit' },
+] as const satisfies ReadonlyArray<{
+  href: string;
+  key: MessagePath;
+}>;
 
 const SERVICES = [
-  {
-    name: 'Haircut & Blow-Dry',
-    detail:
-      'Consultation, wash, precision cut, and finishing blow-dry - short to long hair.',
-    price: 'from 1.000 din',
-    wide: false,
-  },
-  {
-    name: 'Styling & Occasion Hair',
-    detail: 'Iron styling, updos, and braids for events and special occasions.',
-    price: 'from 1.000 din',
-    wide: false,
-  },
-  {
-    name: 'Color - Revlon Professional',
-    detail:
-      'Full color with Revlon Color Sublime, toning, or gloss - priced by length.',
-    price: 'from 2.200 din',
-    wide: false,
-  },
-  {
-    name: 'Balayage & Lightening',
-    detail: 'Bleach, balayage, ombre, or color correction with Magnet Blondes.',
-    price: 'from 3.500 din',
-    wide: false,
-  },
-  {
-    name: 'Bond Repair & Care Rituals',
-    detail:
-      'Bond-repair, UniqOne, and Equave hydrating treatments for damaged hair.',
-    price: 'from 1.000 din',
-    wide: false,
-  },
-  {
-    name: "Men's Grooming",
-    detail: 'Cut, clipper work, beard shape, and wash & style finish.',
-    price: 'from 400 din',
-    wide: true,
-  },
+  { key: 'haircut', fromAmount: '1.000 RSD', wide: false },
+  { key: 'styling', fromAmount: '1.000 RSD', wide: false },
+  { key: 'color', fromAmount: '2.200 RSD', wide: false },
+  { key: 'balayage', fromAmount: '3.500 RSD', wide: false },
+  { key: 'bondRepair', fromAmount: '1.000 RSD', wide: false },
+  { key: 'mensGrooming', fromAmount: '400 RSD', wide: true },
 ] as const satisfies ReadonlyArray<{
-  name: string;
-  detail: string;
-  price: string;
-  wide?: boolean;
+  key: keyof Messages['services']['items'];
+  fromAmount: string;
+  wide: boolean;
 }>;
 
 const WORK = [
-  {
-    label: 'Braids with extensions',
-    image: workBraidsWithExtensions,
-  },
-  {
-    label: 'Straight cut/blow-dry',
-    image: workStraightCutBlowDry,
-  },
-  {
-    label: 'Brown hair waves',
-    image: workBrownHairWaves,
-  },
-  {
-    label: 'Black hair waves',
-    image: workBlackHairWaves,
-  },
-  {
-    label: 'Chestnut hair waves',
-    image: workChestnutHairWaves,
-  },
+  { key: 'braidsWithExtensions', image: workBraidsWithExtensions },
+  { key: 'straightCutBlowDry', image: workStraightCutBlowDry },
+  { key: 'brownHairWaves', image: workBrownHairWaves },
+  { key: 'blackHairWaves', image: workBlackHairWaves },
+  { key: 'chestnutHairWaves', image: workChestnutHairWaves },
 ] satisfies ReadonlyArray<{
-  label: string;
+  key: keyof Messages['work']['items'];
   image: StaticImageData;
 }>;
 
 const STYLISTS = [
   {
+    key: 'stylists.items.jelena.role',
     name: 'Jelena',
-    role: 'Cut, color & styling - every service under one chair.',
     image: jelena,
   },
-] as const;
+] as const satisfies ReadonlyArray<{
+  key: MessagePath;
+  name: string;
+  image: StaticImageData;
+}>;

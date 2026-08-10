@@ -2,6 +2,7 @@ import sr from './sr';
 import en from './en';
 
 export * from './types';
+export * from './translate';
 
 const messages = { sr, en } as const;
 
