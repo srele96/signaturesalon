@@ -160,10 +160,7 @@ export function Home({ translations: t, locale }: Props) {
       </header>
 
       {/* ===== HERO ===== */}
-      <section
-        id="top"
-        className="relative overflow-hidden bg-ink text-paper grain"
-      >
+      <section id="top" className="relative overflow-hidden bg-ink text-paper">
         <div className="max-w-6xl mx-auto px-6 md:px-10 pt-40 pb-28 md:pt-52 md:pb-36 relative">
           <p className="text-gold/90 text-xs md:text-sm tracking-[0.3em] uppercase mb-6">
             {t.hero.eyebrow}
