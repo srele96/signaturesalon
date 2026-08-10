@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { animate, inView } from 'motion';
-
 import Image, { type StaticImageData } from 'next/image';
+import type { Messages, Locale } from '@/messages';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
 import workBraidsWithExtensions from '@/assets/work-braids-with-extensions.jpeg';
@@ -14,9 +15,6 @@ import jelena from '@/assets/jelena.webp';
 import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
 import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
-
-import type { Messages, Locale } from '@/messages';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface Props {
   translations: Messages;
