@@ -4,7 +4,7 @@ export const fraunces = Fraunces({
   subsets: ['latin', 'latin-ext'], // covers Serbian Latin diacritics
   variable: '--app-font-display',
   display: 'swap',
-  // do not use axes, they increase First Contentful Paint to ~3s
+  axes: ['opsz'],
 });
 
 export const workSans = Work_Sans({

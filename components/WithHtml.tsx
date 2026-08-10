@@ -10,11 +10,13 @@ export function WithHtml({ children, locale }: Props) {
   return (
     <html
       lang={locale}
-      className={'h-full antialiased'.concat(
-        [fraunces.variable, workSans.variable, homemadeApple.variable].join(
-          ' ',
-        ),
-      )}
+      className={[
+        'h-full',
+        'antialiased',
+        fraunces.variable,
+        workSans.variable,
+        homemadeApple.variable,
+      ].join(' ')}
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">{children}</body>
