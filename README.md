@@ -35,6 +35,24 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## TODO:
+
+```txt
+todo: sitemap.xml
+
+todo: robots.txt
+
+todo: llm.txt
+
+todo: instagram meta tag
+
+todo: faq section
+
+todo: maybe aggregaterating/review? we have business show on google maps ( seo + practical value )
+
+todo: maybe add main​ section?
+```
+
 ## Documentation
 
 - Get python: <https://www.python.org/>
