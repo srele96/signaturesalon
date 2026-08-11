@@ -21,7 +21,7 @@ export function createStructuredData({ url, priceRange }: Options) {
         name: 'Signature Salon',
         url: base,
         telephone: MOBILE_PHONE_INTL,
-        image: `${base}/image/interior-florals-close.jpeg`,
+        image: `${base}/image/interior-florals-close.webp`,
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Majora Zorana Radosavljevića 205',

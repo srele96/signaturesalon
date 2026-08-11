@@ -21,7 +21,7 @@ import workChestnutHairWaves from '@/assets/work-chestnut-hair-waves.jpeg';
 import workStraightCutBlowDry from '@/assets/work-straight-cut-blow-dry.jpeg';
 import jelena from '@/assets/jelena.webp';
 import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
-import interiorFloralsClose from '@/assets/interior-florals-close.jpeg';
+import interiorFloralsClose from '@/assets/interior-florals-close.webp';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 
 interface Props {
@@ -80,10 +80,11 @@ export function Home({ translations: t, locale, url }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(createStructuredData({ url, priceRange: getPriceRange(SERVICES) })),
+          __html: JSON.stringify(
+            createStructuredData({ url, priceRange: getPriceRange(SERVICES) }),
+          ),
         }}
       />
-
       {/* ===== NAV ===== */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-sm bg-paper/80 border-b border-ink/10">
         <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">

@@ -130,7 +130,7 @@ const messages: Messages = {
     copyright: '© 2026 Signature Salon. All rights reserved.',
   },
   location: {
-    heading: 'How to Find Us',
+    heading: 'Find Us',
     subheading: 'Directions, landmarks, and the nearest bus stop.',
     directions: [
       'Signature hair salon in Batajnica is located at the intersection of ' +

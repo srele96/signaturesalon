@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
+  output: 'export',
   // Required to create /sr/index.html pages instead of /sr.html
   // for clean route navigation
   trailingSlash: true,
