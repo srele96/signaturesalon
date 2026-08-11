@@ -38,17 +38,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## TODO:
 
 ```txt
-todo: sitemap.xml
-
-todo: robots.txt
-
-todo: llm.txt
-
 todo: faq section
 
 todo: maybe aggregaterating/review? we have business show on google maps ( seo + practical value )
-
-todo: leave a review link to google business
 ```
 
 ## Documentation

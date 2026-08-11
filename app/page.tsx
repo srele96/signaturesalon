@@ -1,6 +1,6 @@
 import { Home } from '@/components/Home';
 import messages, { type Locale, defaultLocale } from '@/messages';
-import { url } from '@/url';
+import { url } from '@/lib/url';
 
 const locale: Locale = defaultLocale;
 

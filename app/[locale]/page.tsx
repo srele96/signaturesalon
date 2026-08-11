@@ -1,7 +1,7 @@
 import { Home } from '@/components/Home';
 import { notFound } from 'next/navigation';
 import messages, { hasLocale } from '@/messages';
-import { url } from '@/url';
+import { url } from '@/lib/url';
 
 export default async function Page({
   params,

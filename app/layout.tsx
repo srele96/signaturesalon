@@ -5,7 +5,7 @@ import messages, {
   defaultLocale,
   type Locale,
 } from '@/messages';
-import { url } from '@/url';
+import { url } from '@/lib/url';
 import { fraunces, workSans } from '@/fonts';
 import {
   createOpenGraphMetadata,

@@ -6,7 +6,7 @@ import messages, {
   hrefFor,
   languageAlternates,
 } from '@/messages';
-import { url } from '@/url';
+import { url } from '@/lib/url';
 import {
   createOpenGraphMetadata,
   createTwitterMetadata,

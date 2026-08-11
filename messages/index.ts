@@ -25,6 +25,10 @@ export function languageAlternates(): Record<Locale, string> {
   >;
 }
 
+export function canonicalPaths(): string[] {
+  return locales().map(hrefFor);
+}
+
 export function locales() {
   return Object.keys(messages) as Locale[];
 }
