@@ -1,5 +1,5 @@
 import type { Locale } from '@/messages';
-import { fraunces, workSans, homemadeApple } from '@/fonts';
+import { fraunces, workSans } from '@/fonts';
 
 interface Props {
   children: React.ReactNode;
@@ -15,7 +15,6 @@ export async function WithHtml({ children, locale }: Props) {
         'antialiased',
         fraunces.variable,
         workSans.variable,
-        homemadeApple.variable,
       ].join(' ')}
       data-scroll-behavior="smooth"
     >

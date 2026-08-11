@@ -321,19 +321,13 @@ export function Home({ translations: t, locale, url }: Props) {
             {STYLISTS.map((stylist) => (
               <div key={stylist.key} className="reveal text-center">
                 <div className="aspect-square rounded-full bg-ink/8 mb-5 overflow-hidden flex items-center justify-center">
-                  {stylist.image ? (
-                    <Image
-                      src={stylist.image}
-                      alt={stylist.name}
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <span className="font-script text-3xl text-gold">
-                      {stylist.name.charAt(0)}
-                    </span>
-                  )}
+                  <Image
+                    src={stylist.image}
+                    alt={stylist.name}
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-display text-lg">{stylist.name}</h3>
                 <p className="text-taupe text-sm">
