@@ -51,6 +51,8 @@ todo: faq section
 todo: maybe aggregaterating/review? we have business show on google maps ( seo + practical value )
 
 todo: maybe add main​ section?
+
+todo: leave a review link to google business
 ```
 
 ## Documentation
@@ -70,3 +72,54 @@ cd out
 # Run python http server to serve the static website
 py -3.14 -m http.server 8000
 ```
+
+### Reduced motion test
+
+On Windows, here is how it looks in browser
+
+![prefer reduced motion in browser](./docs/prefer-reduced-motion.webp)
+
+Steps to enable/disable reduced motion in Chrome
+
+```txt
+# Press
+ctrl+shift+p
+
+# Type and press enter
+show rendering
+
+# Find 'Emulate CSS media feature prefers-reduced-motion'
+prefers-reduced-motion: reduce
+
+# In browser console type
+window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+# You should see output 'true'
+
+# Expect the motion (transition) not to happen, opacity transition will occur
+```
+
+### Optimize commited docs image
+
+The following set of steps works on windows and allows us to optimize an image so we don't commit large unoptimized images to the repository.
+
+```txt
+# Set the two variables in powershell
+
+$ImageName = "prefer-reduced-motion"
+$ImageExt = "png"
+
+# Create directory for optimized image
+
+mkdir docs/optimized -ErrorAction SilentlyContinue
+
+# Optimize the desired image
+
+npx sharp-cli -i "docs/$ImageName.$ImageExt" -o "docs/optimized/$ImageName.webp" -f webp -q 85
+
+# Check optimization result
+
+Get-Item "docs/optimized/$ImageName.webp" | Select-Object Name, @{N='SizeKB';E={[math]::Round($_.Length/1KB,1)}}
+```
+
+At the end, replace the original image with the optimized `webp` image if desired result is satisfying.
