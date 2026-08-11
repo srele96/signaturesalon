@@ -3,7 +3,17 @@ import type { Messages } from './types';
 const messages: Messages = {
   metadata: {
     title: 'Signature Salon',
-    description: 'A cut that carries your signature.',
+    description:
+      'Hair salon in Batajnica, Belgrade - haircuts, coloring, ' +
+      "balayage, and men's grooming. Book by appointment, Mon-Sat 11am-8pm.",
+    keywords: [
+      'hair salon Batajnica',
+      'hairdresser Batajnica',
+      'haircut Batajnica',
+      'hair coloring Batajnica',
+      'balayage Belgrade',
+      "men's haircut Batajnica",
+    ],
   },
   header: {
     brand: 'Signature',
@@ -14,6 +24,7 @@ const messages: Messages = {
       stylists: 'Stylists',
       about: 'About',
       findUs: 'Find Us',
+      faq: 'FAQ',
       visit: 'Visit',
     },
     bookAction: 'Book a chair',

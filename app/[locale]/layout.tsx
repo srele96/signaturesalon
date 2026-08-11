@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     metadataBase: url(),
     title: t.metadata.title,
     description: t.metadata.description,
+    keywords: t.metadata.keywords,
     alternates: {
       canonical: hrefFor(locale),
       languages: languageAlternates(),

@@ -3,7 +3,17 @@ import type { Messages } from './types';
 const messages: Messages = {
   metadata: {
     title: 'Signature Salon',
-    description: 'Šišanje koje nosi vaš potpis',
+    description:
+      'Frizerski salon u Batajnici - šišanje, farbanje, balayage i muško ' +
+      'šišanje. Zakazivanje po dogovoru, Pon-Sub 11-20h.',
+    keywords: [
+      'frizerski salon Batajnica',
+      'frizer Batajnica',
+      'šišanje Batajnica',
+      'farbanje kose Batajnica',
+      'balayage Beograd',
+      'muško šišanje Batajnica',
+    ],
   },
   header: {
     brand: 'Signature',
@@ -14,6 +24,7 @@ const messages: Messages = {
       stylists: 'Frizeri',
       about: 'O nama',
       findUs: 'Kako do nas',
+      faq: 'Pitanja',
       visit: 'Poseta',
     },
     bookAction: 'Zakaži termin',

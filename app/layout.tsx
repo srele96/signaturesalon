@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   metadataBase: url(),
   title: t.metadata.title,
   description: t.metadata.description,
+  keywords: t.metadata.keywords,
   manifest: '/site.webmanifest',
   icons: {
     icon: [

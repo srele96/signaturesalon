@@ -694,6 +694,7 @@ const NAV_LINKS = [
   { href: '#stylists', key: 'header.nav.stylists' },
   { href: '#about', key: 'header.nav.about' },
   { href: '#find-us', key: 'header.nav.findUs' },
+  { href: '#faq', key: 'header.nav.faq' },
   { href: '#visit', key: 'header.nav.visit' },
 ] as const satisfies ReadonlyArray<{
   href: string;

@@ -27,6 +27,7 @@ interface Messages {
   metadata: {
     title: string;
     description: string;
+    keywords: string[];
   };
   header: {
     brand: string;
@@ -37,6 +38,7 @@ interface Messages {
       stylists: string;
       about: string;
       findUs: string;
+      faq: string;
       visit: string;
     };
     bookAction: string;
