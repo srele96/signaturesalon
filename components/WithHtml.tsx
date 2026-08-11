@@ -6,7 +6,7 @@ interface Props {
   locale: Locale;
 }
 
-export function WithHtml({ children, locale }: Props) {
+export async function WithHtml({ children, locale }: Props) {
   return (
     <html
       lang={locale}

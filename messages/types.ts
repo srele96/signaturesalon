@@ -1,3 +1,8 @@
+interface BusLine {
+  number: string;
+  route: string;
+}
+
 interface Messages {
   metadata: {
     title: string;
@@ -11,6 +16,7 @@ interface Messages {
       work: string;
       stylists: string;
       about: string;
+      findUs: string;
       visit: string;
     };
     bookAction: string;
@@ -85,6 +91,19 @@ interface Messages {
     closedSunday: string;
     contactHeading: string;
     copyright: string;
+  };
+  location: {
+    heading: string;
+    subheading: string;
+    directions: string[];
+    nearbyHeading: string;
+    nearby: string[];
+    busHeading: string;
+    busStopName: string;
+    busLines: BusLine[];
+    mapTitle: string;
+    openInMaps: string;
+    loadMap: string;
   };
 }
 

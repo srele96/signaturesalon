@@ -11,7 +11,7 @@ type Locale = keyof Translations;
 
 export default messages;
 
-export const defaultLocale: Locale = 'sr';
+export const defaultLocale = 'sr' as const;
 
 export function hrefFor(locale: Locale): string {
   return locale === defaultLocale ? '/' : `/${locale}`;

@@ -13,6 +13,7 @@ const messages: Messages = {
       work: 'Work',
       stylists: 'Stylists',
       about: 'About',
+      findUs: 'Find Us',
       visit: 'Visit',
     },
     bookAction: 'Book a chair',
@@ -127,6 +128,62 @@ const messages: Messages = {
     closedSunday: 'Closed Sunday',
     contactHeading: 'Contact',
     copyright: '© 2026 Signature Salon. All rights reserved.',
+  },
+  location: {
+    heading: 'How to Find Us',
+    subheading: 'Directions, landmarks, and the nearest bus stop.',
+    directions: [
+      'Signature hair salon in Batajnica is located at the intersection of ' +
+        'Majora Zorana Radosavljevića, Maksima Brankovića, and Stevana ' +
+        'Dubajića streets.',
+      "It's on the right-hand side of Majora Zorana Radosavljevića Street " +
+        'when coming from the entrance of Batajnica toward the center.',
+      'Next to Signature salon are the Fotografik print shop and Gradnja ' +
+        'Dekor D.O.O. - so the salon is on the same side as Fotografik and ' +
+        'Gradnja Dekor.',
+      'The entrance is set back slightly, between the Fotografik print shop ' +
+        'and Maksima Brankovića street.',
+      'Once you step through the entrance, the salon is straight ahead - the ' +
+        "salon's own entrance is straight on, with a small passage to the " +
+        'right and the door on the left.',
+      "Looking through the entrance, you'll see a large glass window - that's " +
+        "the Signature salon's window.",
+    ],
+    nearbyHeading: 'Nearby',
+    nearby: [
+      'Anemona Batajnica (flower shop)',
+      'Cafeteria Awassa',
+      '"Pavlica" dental practice',
+      'Mini Style Gallery (gift shop)',
+    ],
+    busHeading: 'Nearest Bus Stop',
+    busStopName: 'Maksima Brankovića, Batajnica',
+    busLines: [
+      {
+        number: '73',
+        route: 'Novi Beograd (Blok 45) - Batajnica',
+      },
+      {
+        number: '703',
+        route:
+          'Zemun (Kej oslobođenja) - Batajnica (train station) - Ugrinovci',
+      },
+      {
+        number: '706',
+        route: 'Zeleni venac - Batajnica',
+      },
+      {
+        number: '706E',
+        route: 'Zemun (Kej oslobođenja) - Batajnica Airport',
+      },
+      {
+        number: '706N',
+        route: 'Trg republike - Batajnica',
+      },
+    ],
+    mapTitle: 'Signature Salon location',
+    openInMaps: 'Open in Google Maps',
+    loadMap: 'Click to load map',
   },
 };
 

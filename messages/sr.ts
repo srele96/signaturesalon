@@ -2,7 +2,7 @@ import type { Messages } from './types';
 
 const messages: Messages = {
   metadata: {
-    title: 'Signature Salon (SR)',
+    title: 'Signature Salon',
     description: 'Šišanje koje nosi vaš potpis',
   },
   header: {
@@ -13,6 +13,7 @@ const messages: Messages = {
       work: 'Radovi',
       stylists: 'Frizeri',
       about: 'O nama',
+      findUs: 'Kako do nas',
       visit: 'Poseta',
     },
     bookAction: 'Zakaži termin',
@@ -105,7 +106,7 @@ const messages: Messages = {
     subheading:
       'Recite nam šta vam treba i kada vam odgovara - potvrdićemo isti dan.',
     fastestWay: 'Najbrži način za zakazivanje',
-    phoneHours: 'Pon–Sub, 11:00–20:00 - pozovite i naći ćemo vam termin.',
+    phoneHours: 'Pon-Sub, 11:00-20:00 - pozovite i naći ćemo vam termin.',
     callNow: 'Pozovi odmah',
     whatsappHeading: 'Zakaži preko WhatsApp-a',
     whatsappBody:
@@ -122,10 +123,65 @@ const messages: Messages = {
   footer: {
     addressHeading: 'Signature Salon',
     hoursHeading: 'Radno vreme',
-    hoursLine: 'Pon–Sub, 11:00–20:00',
+    hoursLine: 'Pon-Sub, 11:00-20:00',
     closedSunday: 'Nedeljom ne radimo',
     contactHeading: 'Kontakt',
     copyright: '© 2026 Signature Salon. Sva prava zadržana.',
+  },
+  location: {
+    heading: 'Kako do Nas',
+    subheading: 'Pravac kretanja, orijentiri i najbliža autobuska stanica.',
+    directions: [
+      'Frizerski salon Signature u Batajnici nalazi se na raskrsnici ulica ' +
+        'Majora Zorana Radosavljevića, Maksima Brankovića i Stevana Dubajića.',
+      'Nalazi se na desnoj strani ulice Majora Zorana Radosavljevića kada se ' +
+        'ide od ulaza u Batajnicu ka centru Batajnice.',
+      'Pored frizerskog salona Signature nalaze se Štamparija Fotografik i ' +
+        'Gradnja Dekor D.O.O. - dakle, salon Signature se nalazi na istoj ' +
+        'strani kao Štamparija Fotografik i Gradnja Dekor.',
+      'Ulaz je malo uvučen, nalazi se između Štamparije Fotografik i ulice ' +
+        'Maksima Brankovića.',
+      'Kada se uđe kroz ulaz, pravo se vidi salon - ulaz salona je pravo, sa ' +
+        'desne strane je mali prolaz, a vrata su sa leve strane.',
+      'Kada se pogleda kroz ulaz, vidi se veliko providno staklo - to je ' +
+        'staklo salona Signature.',
+    ],
+    nearbyHeading: 'U blizini',
+    nearby: [
+      'Cvećara Anemona Batajnica',
+      'Cafeteria Awassa',
+      'Stomatološka ordinacija „Pavlica"',
+      'Galerija Mini Style (Gift Shop)',
+    ],
+    busHeading: 'Najbliža autobuska stanica',
+    busStopName: 'Maksima Brankovića, Batajnica',
+    busLines: [
+      {
+        number: '73',
+        route: 'Novi Beograd (Blok 45) - Batajnica',
+      },
+      {
+        number: '703',
+        route:
+          'Zemun (Kej oslobođenja) - Batajnica (železnička stanica) - ' +
+          'Ugrinovci',
+      },
+      {
+        number: '706',
+        route: 'Zeleni venac - Batajnica',
+      },
+      {
+        number: '706E',
+        route: 'Zemun (Kej oslobođenja) - Aerodrom Batajnica',
+      },
+      {
+        number: '706N',
+        route: 'Trg republike - Batajnica',
+      },
+    ],
+    mapTitle: 'Lokacija salona Signature',
+    openInMaps: 'Otvori u Google mapama',
+    loadMap: 'Klikni da učitaš mapu',
   },
 };
 

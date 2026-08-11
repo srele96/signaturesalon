@@ -10,6 +10,9 @@ import {
   translate,
 } from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { ArrowRight } from 'lucide-react';
+import { INSTAGRAM_URL, MOBILE_PHONE, MOBILE_PHONE_INTL } from '@/lib/constant';
+import { createStructuredData } from '@/lib/create-structured-data';
 
 import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
 import workBraidsWithExtensions from '@/assets/work-braids-with-extensions.jpeg';
@@ -24,9 +27,10 @@ import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
 interface Props {
   translations: Messages;
   locale: Locale;
+  url: string;
 }
 
-export function Home({ translations: t, locale }: Props) {
+export function Home({ translations: t, locale, url }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const sigPathRef = useRef<SVGPathElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,6 +77,13 @@ export function Home({ translations: t, locale }: Props) {
 
   return (
     <div ref={rootRef} className="font-body text-ink antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(createStructuredData({ url, priceRange: getPriceRange(SERVICES) })),
+        }}
+      />
+
       {/* ===== NAV ===== */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-sm bg-paper/80 border-b border-ink/10">
         <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
@@ -245,7 +256,7 @@ export function Home({ translations: t, locale }: Props) {
                 </div>
                 <span className="text-gold text-sm whitespace-nowrap ml-6">
                   {translate(t, 'services.price', {
-                    amount: service.fromAmount,
+                    amount: formatPrice(service.amount, service.currency),
                   })}
                 </span>
               </div>
@@ -371,6 +382,87 @@ export function Home({ translations: t, locale }: Props) {
         </div>
       </section>
 
+      <section
+        id="find-us"
+        className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
+      >
+        <div className="reveal flex items-end justify-between mb-14 flex-wrap gap-4">
+          <h2 className="font-display text-4xl md:text-5xl font-light">
+            {t.location.heading}
+          </h2>
+          <p className="text-taupe text-sm max-w-xs">{t.location.subheading}</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+          {/* Text content */}
+          <div className="reveal space-y-8">
+            <div className="space-y-4 text-ink/70 text-sm md:text-base leading-relaxed">
+              {t.location.directions.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="border-t border-ink/15 pt-6">
+              <h3 className="font-display text-lg mb-3">
+                {t.location.nearbyHeading}
+              </h3>
+              <ul className="text-taupe text-sm space-y-1.5">
+                {t.location.nearby.map((place, i) => (
+                  <li key={i}>{place}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border-t border-ink/15 pt-6">
+              <h3 className="font-display text-lg mb-1">
+                {t.location.busHeading}
+              </h3>
+              <a
+                href="https://www.planplus.rs/beograd/stajaliste/maksima-brankovica/3076"
+                rel="noopener noreferrer"
+                className="text-gold text-sm hover:underline"
+              >
+                {t.location.busStopName}
+              </a>
+              <ul className="mt-3 text-taupe text-sm space-y-1.5">
+                {t.location.busLines.map((line) => (
+                  <li key={line.number} className="flex gap-3">
+                    <span className="text-ink font-medium shrink-0 w-12">
+                      {line.number}
+                    </span>
+                    <span>{line.route}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Map */}
+          <div className="reveal space-y-4">
+            <div className="w-full aspect-square md:aspect-4/5 rounded-lg overflow-hidden ring-1 ring-ink/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d666.9036587482959!2d20.290000049084973!3d44.8981339508624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a67a48e3c5523%3A0x1c43e0950fa06162!2sSignature!5e0!3m2!1sen!2srs!4v1786403572686!5m2!1sen!2srs"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={t.location.mapTitle}
+              />
+            </div>
+            <a
+              href="https://maps.app.goo.gl/oeiT45tU6cUaNtNVA"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-gold hover:underline"
+            >
+              {t.location.openInMaps}
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ===== BOOK / CTA ===== */}
       <section
         id="book"
@@ -393,14 +485,14 @@ export function Home({ translations: t, locale }: Props) {
               {t.book.fastestWay}
             </p>
             <a
-              href="tel:+381637427750"
+              href={`tel:${MOBILE_PHONE_INTL}`}
               className="font-display text-4xl md:text-5xl font-light text-paper hover:text-gold transition-colors block mb-4"
             >
               063 742 7750
             </a>
             <p className="text-paper/50 text-sm mb-6">{t.book.phoneHours}</p>
             <a
-              href="tel:+381637427750"
+              href={`tel:${MOBILE_PHONE_INTL}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:bg-paper transition-colors"
             >
               {t.book.callNow}
@@ -417,7 +509,7 @@ export function Home({ translations: t, locale }: Props) {
                 {t.book.whatsappBody}
               </p>
               <a
-                href={`https://wa.me/381637427750?text=${encodeURIComponent(t.book.whatsappMessage)}`}
+                href={`https://wa.me/${MOBILE_PHONE}?text=${encodeURIComponent(t.book.whatsappMessage)}`}
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-ink text-sm font-medium hover:opacity-90 transition-opacity"
               >
@@ -433,7 +525,7 @@ export function Home({ translations: t, locale }: Props) {
                 {t.book.instagramBody}
               </p>
               <a
-                href="https://instagram.com/signaturebatajnica"
+                href={INSTAGRAM_URL}
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-linear-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-paper text-sm font-medium hover:opacity-90 transition-opacity"
               >
@@ -474,7 +566,7 @@ export function Home({ translations: t, locale }: Props) {
           </h3>
           <p className="text-taupe mb-2">
             <a
-              href="tel:+381637427750"
+              href={`tel:${MOBILE_PHONE_INTL}`}
               className="hover:text-gold transition-colors"
             >
               063 742 7750
@@ -482,14 +574,14 @@ export function Home({ translations: t, locale }: Props) {
           </p>
           <div className="flex items-center gap-4 text-taupe">
             <a
-              href="https://wa.me/381637427750"
+              href={`https://wa.me/${MOBILE_PHONE}`}
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors"
             >
               WhatsApp
             </a>
             <a
-              href="https://instagram.com/signaturebatajnica"
+              href={INSTAGRAM_URL}
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors"
             >
@@ -511,22 +603,36 @@ const NAV_LINKS = [
   { href: '#work', key: 'header.nav.work' },
   { href: '#stylists', key: 'header.nav.stylists' },
   { href: '#about', key: 'header.nav.about' },
+  { href: '#find-us', key: 'header.nav.findUs' },
   { href: '#visit', key: 'header.nav.visit' },
 ] as const satisfies ReadonlyArray<{
   href: string;
   key: MessagePath;
 }>;
 
+function formatPrice(amount: number, currency: string): string {
+  return `${amount.toLocaleString('sr-RS')} ${currency}`;
+}
+
+function getPriceRange(services: typeof SERVICES): string {
+  const amounts = services.map((s) => s.amount);
+  const currency = services[0].currency;
+  const min = Math.min(...amounts);
+  const max = Math.max(...amounts);
+  return `${min}-${max} ${currency}`;
+}
+
 const SERVICES = [
-  { key: 'haircut', fromAmount: '1.000 RSD', wide: false },
-  { key: 'styling', fromAmount: '1.000 RSD', wide: false },
-  { key: 'color', fromAmount: '2.200 RSD', wide: false },
-  { key: 'balayage', fromAmount: '3.500 RSD', wide: false },
-  { key: 'bondRepair', fromAmount: '1.000 RSD', wide: false },
-  { key: 'mensGrooming', fromAmount: '400 RSD', wide: true },
+  { key: 'haircut', amount: 1000, currency: 'RSD', wide: false },
+  { key: 'styling', amount: 1000, currency: 'RSD', wide: false },
+  { key: 'color', amount: 2200, currency: 'RSD', wide: false },
+  { key: 'balayage', amount: 3500, currency: 'RSD', wide: false },
+  { key: 'bondRepair', amount: 1000, currency: 'RSD', wide: false },
+  { key: 'mensGrooming', amount: 400, currency: 'RSD', wide: true },
 ] as const satisfies ReadonlyArray<{
   key: keyof Messages['services']['items'];
-  fromAmount: string;
+  amount: number;
+  currency: string;
   wide: boolean;
 }>;
 

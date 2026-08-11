@@ -7,10 +7,6 @@ import messages, {
 } from '@/messages';
 import { url } from '@/url';
 
-// import '@fontsource-variable/fraunces/full';
-// import '@fontsource-variable/fraunces/full-italic.css';
-// import '@fontsource-variable/work-sans';
-// import '@fontsource/homemade-apple';
 import './globals.css';
 
 const locale: Locale = defaultLocale;
