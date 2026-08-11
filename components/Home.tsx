@@ -55,8 +55,9 @@ export function Home({ translations: t, locale, url }: Props) {
             ),
           }}
         />
+
         {/* ===== NAV ===== */}
-        <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-sm bg-paper/80 border-b border-ink/10">
+        <header className="fixed top-0 inset-x-0 z-50 bg-paper border-b border-ink/10">
           <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
             <a href="#top" className="font-display text-lg tracking-tight">
               {translate(t, 'header.brand')}{' '}
@@ -115,11 +116,20 @@ export function Home({ translations: t, locale, url }: Props) {
 
           {/* Mobile menu panel */}
           <div
-            className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out bg-paper border-t border-ink/10 ${
-              isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-            }`}
+            className={[
+              'lg:hidden',
+              'grid',
+              'overflow-hidden',
+              'transition-[grid-template-rows,padding]',
+              'duration-300',
+              'ease-in-out',
+              'bg-paper',
+              'border-t',
+              'border-ink/10',
+              isMenuOpen ? 'grid-rows-[1fr] py-4' : 'grid-rows-[0fr] py-0',
+            ].join(' ')}
           >
-            <nav className="flex flex-col px-6 py-4 gap-1">
+            <nav className="min-h-0 flex flex-col px-6 gap-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
