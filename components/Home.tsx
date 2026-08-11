@@ -3,14 +3,8 @@
 import { useState } from 'react';
 import { motion, MotionConfig, type HTMLMotionProps } from 'motion/react';
 import Image, { type StaticImageData } from 'next/image';
-import {
-  type Messages,
-  type Locale,
-  type MessagePath,
-  type FaqItem,
-  type FaqId,
-  translate,
-} from '@/messages';
+import { translate } from '@/messages';
+import type { Messages, Locale, MessagePath, FaqItem, FaqId } from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ArrowRight, Plus } from 'lucide-react';
 import {
@@ -18,6 +12,7 @@ import {
   MOBILE_PHONE,
   MOBILE_PHONE_INTL,
   GOOGLE_REVIEW_URL,
+  SECTION_ID,
 } from '@/lib/constant';
 import { createStructuredData } from '@/lib/create-structured-data';
 
@@ -62,7 +57,10 @@ export function Home({ translations: t, locale, url }: Props) {
         {/* ===== NAV ===== */}
         <header className="fixed top-0 inset-x-0 z-50 bg-paper border-b border-ink/10">
           <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-            <a href="#top" className="font-display text-lg tracking-tight">
+            <a
+              href={`#${SECTION_ID.top}`}
+              className="font-display text-lg tracking-tight"
+            >
               {translate(t, 'header.brand')}{' '}
               <span className="text-gold">
                 {translate(t, 'header.brandAccent')}
@@ -84,7 +82,7 @@ export function Home({ translations: t, locale, url }: Props) {
             <div className="flex items-center gap-3">
               <LanguageSwitcher locale={locale} />
               <a
-                href="#book"
+                href={`#${SECTION_ID.book}`}
                 className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
               >
                 {translate(t, 'header.bookAction')}
@@ -144,7 +142,7 @@ export function Home({ translations: t, locale, url }: Props) {
                 </a>
               ))}
               <a
-                href="#book"
+                href={`#${SECTION_ID.book}`}
                 onClick={() => setIsMenuOpen(false)}
                 className="mt-4 text-center text-sm px-4 py-3 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
               >
@@ -157,7 +155,7 @@ export function Home({ translations: t, locale, url }: Props) {
         <main>
           {/* ===== HERO ===== */}
           <section
-            id="top"
+            id={SECTION_ID.top}
             className="relative overflow-hidden bg-ink text-paper"
           >
             <div className="max-w-6xl mx-auto px-6 md:px-10 pt-40 pb-28 md:pt-52 md:pb-36 relative">
@@ -206,13 +204,13 @@ export function Home({ translations: t, locale, url }: Props) {
 
               <div className="mt-14 flex flex-wrap gap-4">
                 <a
-                  href="#book"
+                  href={`#${SECTION_ID.book}`}
                   className="px-6 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:bg-paper transition-colors"
                 >
                   {t.hero.bookAction}
                 </a>
                 <a
-                  href="#services"
+                  href={`#${SECTION_ID.services}`}
                   className="px-6 py-3 rounded-full border border-paper/30 text-sm hover:border-gold hover:text-gold transition-colors"
                 >
                   {t.hero.seeServices}
@@ -224,7 +222,7 @@ export function Home({ translations: t, locale, url }: Props) {
 
           {/* ===== SERVICES ===== */}
           <section
-            id="services"
+            id={SECTION_ID.services}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
             <motion.div
@@ -266,7 +264,10 @@ export function Home({ translations: t, locale, url }: Props) {
           </section>
 
           {/* ===== WORK / GALLERY ===== */}
-          <section id="work" className="bg-wine text-paper py-24 md:py-32">
+          <section
+            id={SECTION_ID.work}
+            className="bg-wine text-paper py-24 md:py-32"
+          >
             <div className="max-w-6xl mx-auto px-6 md:px-10">
               <motion.h2
                 {...reveal}
@@ -311,7 +312,7 @@ export function Home({ translations: t, locale, url }: Props) {
 
           {/* ===== STYLISTS ===== */}
           <section
-            id="stylists"
+            id={SECTION_ID.stylists}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
             <motion.h2
@@ -346,7 +347,10 @@ export function Home({ translations: t, locale, url }: Props) {
           </section>
 
           {/* ===== ABOUT / INTERIOR ===== */}
-          <section id="about" className="bg-wine text-paper py-24 md:py-32">
+          <section
+            id={SECTION_ID.about}
+            className="bg-wine text-paper py-24 md:py-32"
+          >
             <div className="max-w-6xl mx-auto px-6 md:px-10">
               <div className="grid md:grid-cols-2 gap-14 md:gap-10 items-center">
                 <motion.div {...reveal}>
@@ -399,7 +403,7 @@ export function Home({ translations: t, locale, url }: Props) {
           </section>
 
           <section
-            id="find-us"
+            id={SECTION_ID.findUs}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
             <motion.div
@@ -486,7 +490,7 @@ export function Home({ translations: t, locale, url }: Props) {
 
           {/* ===== FAQ ===== */}
           <section
-            id="faq"
+            id={SECTION_ID.faq}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
             <motion.div
@@ -515,7 +519,7 @@ export function Home({ translations: t, locale, url }: Props) {
 
           {/* ===== BOOK / CTA ===== */}
           <section
-            id="book"
+            id={SECTION_ID.book}
             className="bg-ink text-paper relative overflow-hidden grain"
           >
             <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32 relative">
@@ -539,7 +543,17 @@ export function Home({ translations: t, locale, url }: Props) {
                 </p>
                 <a
                   href={`tel:${MOBILE_PHONE_INTL}`}
-                  className="font-display text-4xl md:text-5xl font-light text-paper hover:text-gold transition-colors block mb-4"
+                  className={[
+                    'font-display',
+                    'text-4xl',
+                    'md:text-5xl',
+                    'font-light',
+                    'text-paper',
+                    'hover:text-gold',
+                    'transition-colors',
+                    'block',
+                    'mb-4',
+                  ].join(' ')}
                 >
                   063 742 7750
                 </a>
@@ -548,7 +562,21 @@ export function Home({ translations: t, locale, url }: Props) {
                 </p>
                 <a
                   href={`tel:${MOBILE_PHONE_INTL}`}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:bg-paper transition-colors"
+                  className={[
+                    'inline-flex',
+                    'items-center',
+                    'justify-center',
+                    'gap-2',
+                    'px-8',
+                    'py-3',
+                    'rounded-full',
+                    'bg-gold',
+                    'text-ink',
+                    'text-sm',
+                    'font-medium',
+                    'hover:bg-paper',
+                    'transition-colors',
+                  ].join(' ')}
                 >
                   {t.book.callNow}
                 </a>
@@ -570,7 +598,23 @@ export function Home({ translations: t, locale, url }: Props) {
                     href={`https://wa.me/${MOBILE_PHONE}?text=${encodeURIComponent(t.book.whatsappMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-ink text-sm font-medium hover:opacity-90 transition-opacity"
+                    className={[
+                      'mt-auto',
+                      'w-full',
+                      'inline-flex',
+                      'items-center',
+                      'justify-center',
+                      'gap-2',
+                      'px-6',
+                      'py-3',
+                      'rounded-full',
+                      'bg-[#25D366]',
+                      'text-ink',
+                      'text-sm',
+                      'font-medium',
+                      'hover:opacity-90',
+                      'transition-opacity',
+                    ].join(' ')}
                   >
                     {t.book.whatsappCta}
                   </a>
@@ -590,7 +634,26 @@ export function Home({ translations: t, locale, url }: Props) {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-linear-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-paper text-sm font-medium hover:opacity-90 transition-opacity"
+                    className={[
+                      'mt-auto',
+                      'w-full',
+                      'inline-flex',
+                      'items-center',
+                      'justify-center',
+                      'gap-2',
+                      'px-6',
+                      'py-3',
+                      'rounded-full',
+                      'bg-linear-to-tr',
+                      'from-[#feda75]',
+                      'via-[#d62976]',
+                      'to-[#4f5bd5]',
+                      'text-paper',
+                      'text-sm',
+                      'font-medium',
+                      'hover:opacity-90',
+                      'transition-opacity',
+                    ].join(' ')}
                   >
                     @signaturebatajnica
                   </a>
@@ -598,7 +661,18 @@ export function Home({ translations: t, locale, url }: Props) {
 
                 <motion.div
                   {...reveal}
-                  className="bg-paper/5 border border-paper/15 rounded-2xl p-6 md:p-8 flex flex-col md:col-span-2 lg:col-span-1"
+                  className={[
+                    'bg-paper/5',
+                    'border',
+                    'border-paper/15',
+                    'rounded-2xl',
+                    'p-6',
+                    'md:p-8',
+                    'flex',
+                    'flex-col',
+                    'md:col-span-2',
+                    'lg:col-span-1',
+                  ].join(' ')}
                 >
                   <h3 className="font-display text-xl md:text-2xl mb-3">
                     {t.book.review.heading}
@@ -610,7 +684,23 @@ export function Home({ translations: t, locale, url }: Props) {
                     href={GOOGLE_REVIEW_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:opacity-90 transition-opacity"
+                    className={[
+                      'mt-auto',
+                      'w-full',
+                      'inline-flex',
+                      'items-center',
+                      'justify-center',
+                      'gap-2',
+                      'px-6',
+                      'py-3',
+                      'rounded-full',
+                      'bg-gold',
+                      'text-ink',
+                      'text-sm',
+                      'font-medium',
+                      'hover:opacity-90',
+                      'transition-opacity',
+                    ].join(' ')}
                   >
                     {t.book.review.cta}
                   </a>
@@ -622,7 +712,7 @@ export function Home({ translations: t, locale, url }: Props) {
 
         {/* ===== VISIT / FOOTER ===== */}
         <footer
-          id="visit"
+          id={SECTION_ID.visit}
           className="max-w-6xl mx-auto px-6 md:px-10 py-16 grid sm:grid-cols-3 gap-10 text-sm"
         >
           <div>
@@ -689,13 +779,13 @@ export function Home({ translations: t, locale, url }: Props) {
 }
 
 const NAV_LINKS = [
-  { href: '#services', key: 'header.nav.services' },
-  { href: '#work', key: 'header.nav.work' },
-  { href: '#stylists', key: 'header.nav.stylists' },
-  { href: '#about', key: 'header.nav.about' },
-  { href: '#find-us', key: 'header.nav.findUs' },
-  { href: '#faq', key: 'header.nav.faq' },
-  { href: '#visit', key: 'header.nav.visit' },
+  { href: `#${SECTION_ID.services}`, key: 'header.nav.services' },
+  { href: `#${SECTION_ID.work}`, key: 'header.nav.work' },
+  { href: `#${SECTION_ID.stylists}`, key: 'header.nav.stylists' },
+  { href: `#${SECTION_ID.about}`, key: 'header.nav.about' },
+  { href: `#${SECTION_ID.findUs}`, key: 'header.nav.findUs' },
+  { href: `#${SECTION_ID.faq}`, key: 'header.nav.faq' },
+  { href: `#${SECTION_ID.visit}`, key: 'header.nav.visit' },
 ] as const satisfies ReadonlyArray<{
   href: string;
   key: MessagePath;

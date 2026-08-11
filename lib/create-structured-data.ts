@@ -1,4 +1,4 @@
-import { INSTAGRAM_URL, MOBILE_PHONE_INTL } from './constant';
+import { INSTAGRAM_URL, MOBILE_PHONE_INTL, SECTION_ID } from './constant';
 import { defaultLocale, type FaqItem } from '@/messages';
 
 interface Options {
@@ -63,7 +63,7 @@ export function createStructuredData({ url, priceRange, faqItems }: Options) {
       },
       {
         '@type': 'FAQPage',
-        '@id': `${base}/#faq`,
+        '@id': `${base}/#${SECTION_ID.faq}`,
         mainEntity: faqItems.map((item) => ({
           '@type': 'Question',
           name: item.question,
