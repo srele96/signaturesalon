@@ -193,8 +193,8 @@ const messages: Messages = {
   faqSection: {
     heading: 'Frequently Asked Questions',
     subheading: 'Answers to what people most often ask us.',
-    items: [
-      {
+    items: {
+      'booking-required': {
         question:
           'Do I need to book an appointment in advance, or can ' +
           'I just walk in?',
@@ -202,13 +202,13 @@ const messages: Messages = {
           "Booking is available, but not required. You're welcome to " +
           'walk in and wait for your turn.',
       },
-      {
+      'booking-advance-notice': {
         question: 'How far in advance should I book?',
         answer:
           "We're flexible - you don't need to book far in advance. You " +
           'can even get an appointment for tomorrow.',
       },
-      {
+      'cancel-reschedule': {
         question:
           'Can I cancel or reschedule my appointment, and how much notice ' +
           'do I need to give?',
@@ -216,7 +216,7 @@ const messages: Messages = {
           'Yes, appointments can be cancelled or rescheduled - just let us ' +
           'know at least a day in advance.',
       },
-      {
+      parking: {
         question: 'Do you have parking?',
         answer:
           'There are usually a few parking spots right in front of the salon ' +
@@ -224,22 +224,22 @@ const messages: Messages = {
           "while unmarked, parking is generally fine as long as you don't " +
           "block an exit or park where it's explicitly prohibited.",
       },
-      {
+      'payment-methods': {
         question: 'Do you accept card payments, or only cash?',
         answer: 'At the moment, we only accept cash.',
       },
-      {
+      'directions-transport': {
         question: 'How do I get to you / which transport should I take?',
         answer: 'Transport details are listed in the "Find Us" section.',
       },
-      {
+      location: {
         question: 'Where exactly is the salon, and how do I find it?',
         answer:
           'The salon is located at the intersection of Majora Zorana ' +
           'Radosavljevića, Maksima Brankovića, and Stevana Dubajića ' +
           'streets. For more details, see the "Find Us" section.',
       },
-    ],
+    },
   },
 };
 

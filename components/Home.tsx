@@ -8,6 +8,7 @@ import {
   type Locale,
   type MessagePath,
   type FaqItem,
+  type FaqId,
   translate,
 } from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -52,6 +53,7 @@ export function Home({ translations: t, locale, url }: Props) {
               createStructuredData({
                 url,
                 priceRange: getPriceRange(SERVICES),
+                faqItems: Object.values(t.faqSection.items) as FaqItem[],
               }),
             ),
           }}
@@ -500,11 +502,12 @@ export function Home({ translations: t, locale, url }: Props) {
             </motion.div>
 
             <div className="max-w-3xl">
-              {t.faqSection.items.map((item) => (
+              {(Object.keys(t.faqSection.items) as FaqId[]).map((id) => (
                 <FaqAccordionItem
-                  key={item.question}
-                  item={item}
+                  key={id}
+                  item={t.faqSection.items[id]}
                   reveal={reveal}
+                  id={id}
                 />
               ))}
             </div>
@@ -766,45 +769,57 @@ export type RevealProps = HTMLMotionProps<'div'>;
 function FaqAccordionItem({
   item,
   reveal,
+  id,
 }: {
   item: FaqItem;
   reveal: RevealProps;
+  id: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const panelId = `faq-answer-${id}`;
+  const buttonId = `faq-question-${id}`;
 
   return (
     <motion.div
       {...reveal}
       className="border-t border-ink/15 last:border-b py-6"
     >
-      <button
-        type="button"
-        onClick={() => setIsOpen((open) => !open)}
-        aria-expanded={isOpen}
-        className="group w-full flex items-center justify-between gap-4 text-left cursor-pointer"
-      >
-        <h3 className="font-display text-xl transition-colors group-hover:text-gold">
-          {item.question}
-        </h3>
-        <span
-          className={[
-            'shrink-0',
-            'inline-flex',
-            'items-center',
-            'justify-center',
-            'text-gold',
-            'transition-transform',
-            'duration-300',
-            'group-hover:scale-110',
-            isOpen ? 'rotate-45' : '',
-          ].join(' ')}
-          aria-hidden="true"
+      <h3 className="font-display text-xl">
+        <button
+          id={buttonId}
+          type="button"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          className="group w-full flex items-center justify-between gap-4 text-left cursor-pointer"
         >
-          <Plus size={20} strokeWidth={2} />
-        </span>
-      </button>
+          <span className="transition-colors group-hover:text-gold">
+            {item.question}
+          </span>
+          <span
+            className={[
+              'shrink-0',
+              'inline-flex',
+              'items-center',
+              'justify-center',
+              'text-gold',
+              'transition-transform',
+              'duration-300',
+              'group-hover:scale-110',
+              isOpen ? 'rotate-45' : '',
+            ].join(' ')}
+            aria-hidden="true"
+          >
+            <Plus size={20} strokeWidth={2} />
+          </span>
+        </button>
+      </h3>
 
       <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
         className={[
           'grid',
           'overflow-hidden',

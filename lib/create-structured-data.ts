@@ -1,12 +1,13 @@
 import { INSTAGRAM_URL, MOBILE_PHONE_INTL } from './constant';
-import { defaultLocale } from '@/messages';
+import { defaultLocale, type FaqItem } from '@/messages';
 
 interface Options {
   url: string;
   priceRange: string;
+  faqItems: FaqItem[];
 }
 
-export function createStructuredData({ url, priceRange }: Options) {
+export function createStructuredData({ url, priceRange, faqItems }: Options) {
   const base = url.replace(/\/$/, '');
   const businessId = `${base}/#business`;
   const websiteId = `${base}/#website`;
@@ -59,6 +60,18 @@ export function createStructuredData({ url, priceRange }: Options) {
         inLanguage: defaultLocale,
         name: 'Signature Salon',
         publisher: { '@id': businessId },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${base}/#faq`,
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
       },
     ],
   };

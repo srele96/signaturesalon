@@ -191,8 +191,8 @@ const messages: Messages = {
   faqSection: {
     heading: 'Česta pitanja',
     subheading: 'Odgovori na pitanja koja nam ljudi najčešće postavljaju.',
-    items: [
-      {
+    items: {
+      'booking-required': {
         question:
           'Da li je potrebno zakazati termin unapred, ili primate i bez ' +
           'zakazivanja?',
@@ -200,13 +200,13 @@ const messages: Messages = {
           'Zakazivanje je moguće, ali nije neophodno. Možete doći i sačekati ' +
           'svoj red.',
       },
-      {
+      'booking-advance-notice': {
         question: 'Koliko unapred treba zakazati termin?',
         answer:
           'Fleksibilni smo - nije neophodno zakazati termin mnogo unapred. ' +
           'Moguće je zakazati termin već za sutra.',
       },
-      {
+      'cancel-reschedule': {
         question:
           'Da li se termin može otkazati ili pomeriti, i koliko unapred treba ' +
           'javiti?',
@@ -214,7 +214,7 @@ const messages: Messages = {
           'Termin se može otkazati ili pomeriti, potrebno je javiti najmanje ' +
           'dan ranije.',
       },
-      {
+      parking: {
         question: 'Da li imate parking?',
         answer:
           'Najčešće ima nekoliko parking mesta ispred ulaza u salon. Ukoliko ' +
@@ -223,22 +223,22 @@ const messages: Messages = {
           'pazite da ne blokirate izlaz ili da parkiranje nije eksplicitno ' +
           'zabranjeno.',
       },
-      {
+      'payment-methods': {
         question: 'Da li se plaća karticom ili samo gotovinom?',
         answer: 'Trenutno je moguće samo plaćanje gotovinom.',
       },
-      {
+      'directions-transport': {
         question: 'Kako da vas pronađem / kojim prevozom?',
         answer: 'Detalji o prevozu navedeni su u sekciji "Kako nas pronaći".',
       },
-      {
+      location: {
         question: 'Gde se tačno nalazi salon i kako da ga pronađem?',
         answer:
           'Salon se nalazi na raskrsnici ulica Majora Zorana Radosavljevića, ' +
           'Maksima Brankovića i Stevana Dubajića. Za više informacija, ' +
           'pogledajte sekciju "Kako nas pronaći".',
       },
-    ],
+    },
   },
 };
 

@@ -11,8 +11,17 @@ interface FaqItem {
 interface FaqSection {
   heading: string;
   subheading: string;
-  items: FaqItem[];
+  items: Record<FaqId, FaqItem>;
 }
+
+type FaqId =
+  | 'booking-required'
+  | 'booking-advance-notice'
+  | 'cancel-reschedule'
+  | 'parking'
+  | 'payment-methods'
+  | 'directions-transport'
+  | 'location';
 
 interface Messages {
   metadata: {
@@ -139,4 +148,4 @@ type Paths<T> = T extends string
 
 type MessagePath = Paths<Messages>;
 
-export type { Messages, MessagePath, FaqItem };
+export type { Messages, MessagePath, FaqItem, FaqId };
