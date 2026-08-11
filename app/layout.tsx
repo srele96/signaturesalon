@@ -6,6 +6,7 @@ import messages, {
   type Locale,
 } from '@/messages';
 import { url } from '@/url';
+import { fraunces, workSans } from '@/fonts';
 
 import './globals.css';
 
@@ -37,5 +38,18 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: LayoutProps<'/'>) {
-  return children;
+  return (
+    <html
+      lang={locale}
+      className={[
+        'h-full',
+        'antialiased',
+        fraunces.variable,
+        workSans.variable,
+      ].join(' ')}
+      data-scroll-behavior="smooth"
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
 }

@@ -1,9 +1,7 @@
 import { Home } from '@/components/Home';
 import { notFound } from 'next/navigation';
 import messages, { hasLocale } from '@/messages';
-import { WithHtml } from '@/components/WithHtml';
 import { url } from '@/url';
-
 
 export default async function Page({
   params,
@@ -18,9 +16,5 @@ export default async function Page({
 
   const translations = messages[locale];
 
-  return (
-    <WithHtml locale={locale}>
-      <Home translations={translations} locale={locale} url={url().href} />
-    </WithHtml>
-  );
+  return <Home translations={translations} locale={locale} url={url().href} />;
 }
