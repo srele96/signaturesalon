@@ -22,17 +22,14 @@ body {
 }
 
 .reveal {
-  opacity: 0.1;
+  opacity: 1;
+  transform: none;
   transform: translateY(24px);
 }
 
-/* Static-site safety net: if the bundle never runs, .reveal content would
-   stay invisible forever (bad for a client site and for crawlers that don't
-   execute JS). Put `class="no-js"` on <html> in your template and strip it
-   with an inline head script: document.documentElement.classList.remove('no-js') */
-.no-js .reveal {
-  opacity: 1;
-  transform: none;
+.js .reveal {
+  opacity: 0.1;
+  transform: translateY(24px);
 }
 
 @media (prefers-reduced-motion: reduce) {

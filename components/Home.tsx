@@ -36,6 +36,8 @@ export function Home({ translations: t, locale, url }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    document.documentElement.classList.add('js');
+
     const prefersReduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
