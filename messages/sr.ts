@@ -155,7 +155,7 @@ const messages: Messages = {
     nearby: [
       'Cvećara Anemona Batajnica',
       'Cafeteria Awassa',
-      'Stomatološka ordinacija „Pavlica"',
+      'Stomatološka ordinacija "Pavlica"',
       'Galerija Mini Style (Gift Shop)',
     ],
     busHeading: 'Najbliža autobuska stanica',
@@ -187,6 +187,58 @@ const messages: Messages = {
     mapTitle: 'Lokacija salona Signature',
     openInMaps: 'Otvori u Google mapama',
     loadMap: 'Klikni da učitaš mapu',
+  },
+  faqSection: {
+    heading: 'Česta pitanja',
+    subheading: 'Odgovori na pitanja koja nam ljudi najčešće postavljaju.',
+    items: [
+      {
+        question:
+          'Da li je potrebno zakazati termin unapred, ili primate i bez ' +
+          'zakazivanja?',
+        answer:
+          'Zakazivanje je moguće, ali nije neophodno. Možete doći i sačekati ' +
+          'svoj red.',
+      },
+      {
+        question: 'Koliko unapred treba zakazati termin?',
+        answer:
+          'Fleksibilni smo - nije neophodno zakazati termin mnogo unapred. ' +
+          'Moguće je zakazati termin već za sutra.',
+      },
+      {
+        question:
+          'Da li se termin može otkazati ili pomeriti, i koliko unapred treba ' +
+          'javiti?',
+        answer:
+          'Termin se može otkazati ili pomeriti, potrebno je javiti najmanje ' +
+          'dan ranije.',
+      },
+      {
+        question: 'Da li imate parking?',
+        answer:
+          'Najčešće ima nekoliko parking mesta ispred ulaza u salon. Ukoliko ' +
+          'nema slobodnog mesta ispred salona, u okolini ima dosta prostora za ' +
+          'parkiranje - iako nije obeleženo, može se slobodno parkirati, samo ' +
+          'pazite da ne blokirate izlaz ili da parkiranje nije eksplicitno ' +
+          'zabranjeno.',
+      },
+      {
+        question: 'Da li se plaća karticom ili samo gotovinom?',
+        answer: 'Trenutno je moguće samo plaćanje gotovinom.',
+      },
+      {
+        question: 'Kako da vas pronađem / kojim prevozom?',
+        answer: 'Detalji o prevozu navedeni su u sekciji "Kako nas pronaći".',
+      },
+      {
+        question: 'Gde se tačno nalazi salon i kako da ga pronađem?',
+        answer:
+          'Salon se nalazi na raskrsnici ulica Majora Zorana Radosavljevića, ' +
+          'Maksima Brankovića i Stevana Dubajića. Za više informacija, ' +
+          'pogledajte sekciju "Kako nas pronaći".',
+      },
+    ],
   },
 };
 

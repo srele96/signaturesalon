@@ -7,10 +7,11 @@ import {
   type Messages,
   type Locale,
   type MessagePath,
+  type FaqItem,
   translate,
 } from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Plus } from 'lucide-react';
 import {
   INSTAGRAM_URL,
   MOBILE_PHONE,
@@ -481,6 +482,34 @@ export function Home({ translations: t, locale, url }: Props) {
             </div>
           </section>
 
+          {/* ===== FAQ ===== */}
+          <section
+            id="faq"
+            className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
+          >
+            <motion.div
+              {...reveal}
+              className="flex items-end justify-between mb-14 flex-wrap gap-4"
+            >
+              <h2 className="font-display text-4xl md:text-5xl font-light">
+                {t.faqSection.heading}
+              </h2>
+              <p className="text-taupe text-sm max-w-xs">
+                {t.faqSection.subheading}
+              </p>
+            </motion.div>
+
+            <div className="max-w-3xl">
+              {t.faqSection.items.map((item) => (
+                <FaqAccordionItem
+                  key={item.question}
+                  item={item}
+                  reveal={reveal}
+                />
+              ))}
+            </div>
+          </section>
+
           {/* ===== BOOK / CTA ===== */}
           <section
             id="book"
@@ -726,8 +755,69 @@ const MOTION_CONFIG = {
   },
   dashInitial: 1400,
 } as const satisfies {
-  // For now, HTMLMotionProps<'div'> works for all html elements we currently
-  // use motion for
-  reveal: HTMLMotionProps<'div'>;
+  reveal: RevealProps;
   dashInitial: number;
 };
+
+// For now, HTMLMotionProps<'div'> works for all html elements we currently
+// use motion for
+export type RevealProps = HTMLMotionProps<'div'>;
+
+function FaqAccordionItem({
+  item,
+  reveal,
+}: {
+  item: FaqItem;
+  reveal: RevealProps;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      {...reveal}
+      className="border-t border-ink/15 last:border-b py-6"
+    >
+      <button
+        type="button"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
+        className="group w-full flex items-center justify-between gap-4 text-left cursor-pointer"
+      >
+        <h3 className="font-display text-xl transition-colors group-hover:text-gold">
+          {item.question}
+        </h3>
+        <span
+          className={[
+            'shrink-0',
+            'inline-flex',
+            'items-center',
+            'justify-center',
+            'text-gold',
+            'transition-transform',
+            'duration-300',
+            'group-hover:scale-110',
+            isOpen ? 'rotate-45' : '',
+          ].join(' ')}
+          aria-hidden="true"
+        >
+          <Plus size={20} strokeWidth={2} />
+        </span>
+      </button>
+
+      <div
+        className={[
+          'grid',
+          'overflow-hidden',
+          'transition-[grid-template-rows]',
+          'duration-300',
+          'ease-in-out',
+          isOpen ? 'grid-rows-[1fr] mt-3' : 'grid-rows-[0fr]',
+        ].join(' ')}
+      >
+        <p className="min-h-0 text-taupe text-sm leading-relaxed">
+          {item.answer}
+        </p>
+      </div>
+    </motion.div>
+  );
+}

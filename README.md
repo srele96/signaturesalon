@@ -38,8 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## TODO:
 
 ```txt
-todo: faq section
-
 todo: maybe aggregaterating/review? we have business show on google maps ( seo + practical value )
 ```
 

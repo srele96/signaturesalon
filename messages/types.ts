@@ -3,6 +3,17 @@ interface BusLine {
   route: string;
 }
 
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface FaqSection {
+  heading: string;
+  subheading: string;
+  items: FaqItem[];
+}
+
 interface Messages {
   metadata: {
     title: string;
@@ -110,6 +121,7 @@ interface Messages {
     openInMaps: string;
     loadMap: string;
   };
+  faqSection: FaqSection;
 }
 
 type Join<
@@ -127,4 +139,4 @@ type Paths<T> = T extends string
 
 type MessagePath = Paths<Messages>;
 
-export type { Messages, MessagePath };
+export type { Messages, MessagePath, FaqItem };
