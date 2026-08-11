@@ -21,24 +21,6 @@ body {
   background-color: var(--color-paper);
 }
 
-.reveal {
-  opacity: 1;
-  transform: none;
-  transform: translateY(24px);
-}
-
-.js .reveal {
-  opacity: 0.1;
-  transform: translateY(24px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
 .hairline {
   background: linear-gradient(
     90deg,
