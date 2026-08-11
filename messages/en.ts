@@ -120,6 +120,11 @@ const messages: Messages = {
     instagramHeading: 'Follow on Instagram',
     instagramBody:
       'See our latest work, behind-the-chair moments, and booking openings.',
+    review: {
+      heading: 'Leave a Review',
+      body: 'If you enjoyed your visit, a public review means a lot to us.',
+      cta: 'Leave a Google review',
+    },
   },
   footer: {
     addressHeading: 'Signature Salon',

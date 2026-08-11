@@ -11,7 +11,12 @@ import {
 } from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ArrowRight } from 'lucide-react';
-import { INSTAGRAM_URL, MOBILE_PHONE, MOBILE_PHONE_INTL } from '@/lib/constant';
+import {
+  INSTAGRAM_URL,
+  MOBILE_PHONE,
+  MOBILE_PHONE_INTL,
+  GOOGLE_REVIEW_URL,
+} from '@/lib/constant';
 import { createStructuredData } from '@/lib/create-structured-data';
 
 import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
@@ -507,13 +512,13 @@ export function Home({ translations: t, locale, url }: Props) {
                 </a>
               </motion.div>
 
-              {/* Secondary: WhatsApp + Instagram */}
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Secondary: WhatsApp + Instagram + Review */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                 <motion.div
                   {...reveal}
-                  className="bg-paper/5 border border-paper/15 rounded-2xl p-8"
+                  className="bg-paper/5 border border-paper/15 rounded-2xl p-6 md:p-8 flex flex-col"
                 >
-                  <h3 className="font-display text-2xl mb-3">
+                  <h3 className="font-display text-xl md:text-2xl mb-3">
                     {t.book.whatsappHeading}
                   </h3>
                   <p className="text-paper/60 text-sm mb-6">
@@ -521,8 +526,9 @@ export function Home({ translations: t, locale, url }: Props) {
                   </p>
                   <a
                     href={`https://wa.me/${MOBILE_PHONE}?text=${encodeURIComponent(t.book.whatsappMessage)}`}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-ink text-sm font-medium hover:opacity-90 transition-opacity"
+                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-ink text-sm font-medium hover:opacity-90 transition-opacity"
                   >
                     {t.book.whatsappCta}
                   </a>
@@ -530,9 +536,9 @@ export function Home({ translations: t, locale, url }: Props) {
 
                 <motion.div
                   {...reveal}
-                  className="bg-paper/5 border border-paper/15 rounded-2xl p-8"
+                  className="bg-paper/5 border border-paper/15 rounded-2xl p-6 md:p-8 flex flex-col"
                 >
-                  <h3 className="font-display text-2xl mb-3">
+                  <h3 className="font-display text-xl md:text-2xl mb-3">
                     {t.book.instagramHeading}
                   </h3>
                   <p className="text-paper/60 text-sm mb-6">
@@ -540,10 +546,31 @@ export function Home({ translations: t, locale, url }: Props) {
                   </p>
                   <a
                     href={INSTAGRAM_URL}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-linear-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-paper text-sm font-medium hover:opacity-90 transition-opacity"
+                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-linear-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-paper text-sm font-medium hover:opacity-90 transition-opacity"
                   >
                     @signaturebatajnica
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  {...reveal}
+                  className="bg-paper/5 border border-paper/15 rounded-2xl p-6 md:p-8 flex flex-col md:col-span-2 lg:col-span-1"
+                >
+                  <h3 className="font-display text-xl md:text-2xl mb-3">
+                    {t.book.review.heading}
+                  </h3>
+                  <p className="text-paper/60 text-sm mb-6">
+                    {t.book.review.body}
+                  </p>
+                  <a
+                    href={GOOGLE_REVIEW_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:opacity-90 transition-opacity"
+                  >
+                    {t.book.review.cta}
                   </a>
                 </motion.div>
               </div>

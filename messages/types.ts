@@ -83,6 +83,11 @@ interface Messages {
     whatsappMessage: string;
     instagramHeading: string;
     instagramBody: string;
+    review: {
+      heading: string;
+      body: string;
+      cta: string;
+    };
   };
   footer: {
     addressHeading: string;

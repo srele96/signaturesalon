@@ -44,13 +44,9 @@ todo: robots.txt
 
 todo: llm.txt
 
-todo: instagram meta tag
-
 todo: faq section
 
 todo: maybe aggregaterating/review? we have business show on google maps ( seo + practical value )
-
-todo: maybe add main​ section?
 
 todo: leave a review link to google business
 ```

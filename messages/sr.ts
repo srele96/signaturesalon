@@ -119,6 +119,11 @@ const messages: Messages = {
     instagramBody:
       'Pogledajte naše najnovije radove, trenutke iza stolice i slobodne ' +
       'termine.',
+    review: {
+      heading: 'Ostavi utisak',
+      body: 'Ako vam se svideo doživljaj, javna preporuka nam mnogo znači.',
+      cta: 'Ostavi Google recenziju',
+    },
   },
   footer: {
     addressHeading: 'Signature Salon',
