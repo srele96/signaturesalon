@@ -123,3 +123,9 @@ Get-Item "docs/optimized/$ImageName.webp" | Select-Object Name, @{N='SizeKB';E={
 ```
 
 At the end, replace the original image with the optimized `webp` image if desired result is satisfying.
+
+### Testing metadata tags, image, description, title
+
+Visit this url and paste the link to the website to test metadata tags.
+
+<https://metatags.io/?url=signaturesalon.rs>
