@@ -7,6 +7,10 @@ import messages, {
   languageAlternates,
 } from '@/messages';
 import { url } from '@/url';
+import {
+  createOpenGraphMetadata,
+  createTwitterMetadata,
+} from '@/lib/create-metadata';
 
 type Props = {
   children: React.ReactNode;
@@ -34,6 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: hrefFor(locale),
       languages: languageAlternates(),
     },
+    openGraph: createOpenGraphMetadata({ locale, translations: t }),
+    twitter: createTwitterMetadata({ translations: t }),
   };
 }
 

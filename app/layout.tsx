@@ -7,6 +7,10 @@ import messages, {
 } from '@/messages';
 import { url } from '@/url';
 import { fraunces, workSans } from '@/fonts';
+import {
+  createOpenGraphMetadata,
+  createTwitterMetadata,
+} from '@/lib/create-metadata';
 
 import './globals.css';
 
@@ -35,6 +39,8 @@ export const metadata: Metadata = {
     canonical: hrefFor(locale),
     languages: languageAlternates(),
   },
+  openGraph: createOpenGraphMetadata({ locale, translations: t }),
+  twitter: createTwitterMetadata({ translations: t }),
 };
 
 export default async function RootLayout({ children }: LayoutProps<'/'>) {

@@ -33,4 +33,13 @@ export function hasLocale(value: string): value is Locale {
   return (locales() as string[]).includes(value);
 }
 
+const OG_LOCALE_MAP: Record<Locale, string> = {
+  sr: 'sr_RS',
+  en: 'en_US',
+};
+
+export function ogLocaleFor(locale: Locale): string {
+  return OG_LOCALE_MAP[locale];
+}
+
 export type { Translations, Locale };
