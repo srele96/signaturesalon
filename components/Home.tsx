@@ -56,7 +56,18 @@ export function Home({ translations: t, locale, url }: Props) {
 
         {/* ===== NAV ===== */}
         <header className="fixed top-0 inset-x-0 z-50 bg-paper border-b border-ink/10">
-          <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+          <div
+            className={[
+              'max-w-6xl',
+              'mx-auto',
+              'px-6',
+              'md:px-10',
+              'h-16',
+              'flex',
+              'items-center',
+              'justify-between',
+            ].join(' ')}
+          >
             <a
               href={`#${SECTION_ID.top}`}
               className="font-display text-lg tracking-tight"
@@ -67,7 +78,17 @@ export function Home({ translations: t, locale, url }: Props) {
               </span>
             </a>
 
-            <nav className="hidden lg:flex items-center gap-8 text-sm tracking-wide text-ink/70">
+            <nav
+              className={[
+                'hidden',
+                'lg:flex',
+                'items-center',
+                'gap-8',
+                'text-sm',
+                'tracking-wide',
+                'text-ink/70',
+              ].join(' ')}
+            >
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
@@ -83,7 +104,18 @@ export function Home({ translations: t, locale, url }: Props) {
               <LanguageSwitcher locale={locale} />
               <a
                 href={`#${SECTION_ID.book}`}
-                className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
+                className={[
+                  'hidden',
+                  'sm:inline-flex',
+                  'text-sm',
+                  'px-4',
+                  'py-2',
+                  'rounded-full',
+                  'bg-ink',
+                  'text-paper',
+                  'hover:bg-wine',
+                  'transition-colors',
+                ].join(' ')}
               >
                 {translate(t, 'header.bookAction')}
               </a>
@@ -97,19 +129,37 @@ export function Home({ translations: t, locale, url }: Props) {
                 className="lg:hidden relative w-10 h-10 flex items-center justify-center"
               >
                 <span
-                  className={`absolute h-px w-6 bg-ink transition-all duration-300 ${
-                    isMenuOpen ? 'rotate-45' : '-translate-y-1.5'
-                  }`}
+                  className={[
+                    'absolute',
+                    'h-px',
+                    'w-6',
+                    'bg-ink',
+                    'transition-all',
+                    'duration-300',
+                    isMenuOpen ? 'rotate-45' : '-translate-y-1.5',
+                  ].join(' ')}
                 />
                 <span
-                  className={`absolute h-px w-6 bg-ink transition-all duration-300 ${
-                    isMenuOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
+                  className={[
+                    'absolute',
+                    'h-px',
+                    'w-6',
+                    'bg-ink',
+                    'transition-all',
+                    'duration-300',
+                    isMenuOpen ? 'opacity-0' : 'opacity-100',
+                  ].join(' ')}
                 />
                 <span
-                  className={`absolute h-px w-6 bg-ink transition-all duration-300 ${
-                    isMenuOpen ? '-rotate-45' : 'translate-y-1.5'
-                  }`}
+                  className={[
+                    'absolute',
+                    'h-px',
+                    'w-6',
+                    'bg-ink',
+                    'transition-all',
+                    'duration-300',
+                    isMenuOpen ? '-rotate-45' : 'translate-y-1.5',
+                  ].join(' ')}
                 />
               </button>
             </div>
@@ -136,7 +186,16 @@ export function Home({ translations: t, locale, url }: Props) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="py-3 text-base text-ink/80 hover:text-ink transition-colors border-b border-ink/5 last:border-0"
+                  className={[
+                    'py-3',
+                    'text-base',
+                    'text-ink/80',
+                    'hover:text-ink',
+                    'transition-colors',
+                    'border-b',
+                    'border-ink/5',
+                    'last:border-0',
+                  ].join(' ')}
                 >
                   {translate(t, link.key)}
                 </a>
@@ -144,7 +203,18 @@ export function Home({ translations: t, locale, url }: Props) {
               <a
                 href={`#${SECTION_ID.book}`}
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-4 text-center text-sm px-4 py-3 rounded-full bg-ink text-paper hover:bg-wine transition-colors"
+                className={[
+                  'mt-4',
+                  'text-center',
+                  'text-sm',
+                  'px-4',
+                  'py-3',
+                  'rounded-full',
+                  'bg-ink',
+                  'text-paper',
+                  'hover:bg-wine',
+                  'transition-colors',
+                ].join(' ')}
               >
                 {translate(t, 'header.bookAction')}
               </a>
@@ -158,12 +228,42 @@ export function Home({ translations: t, locale, url }: Props) {
             id={SECTION_ID.top}
             className="relative overflow-hidden bg-ink text-paper"
           >
-            <div className="max-w-6xl mx-auto px-6 md:px-10 pt-40 pb-28 md:pt-52 md:pb-36 relative">
-              <p className="text-gold/90 text-xs md:text-sm tracking-[0.3em] uppercase mb-6">
+            <div
+              className={[
+                'max-w-6xl',
+                'mx-auto',
+                'px-6',
+                'md:px-10',
+                'pt-40',
+                'pb-28',
+                'md:pt-52',
+                'md:pb-36',
+                'relative',
+              ].join(' ')}
+            >
+              <p
+                className={[
+                  'text-gold/90',
+                  'text-xs',
+                  'md:text-sm',
+                  'tracking-[0.3em]',
+                  'uppercase',
+                  'mb-6',
+                ].join(' ')}
+              >
                 {t.hero.eyebrow}
               </p>
 
-              <h1 className="font-display font-light text-[13vw] md:text-[6.5vw] leading-[0.95] max-w-4xl">
+              <h1
+                className={[
+                  'font-display',
+                  'font-light',
+                  'text-[13vw]',
+                  'md:text-[6.5vw]',
+                  'leading-[0.95]',
+                  'max-w-4xl',
+                ].join(' ')}
+              >
                 {`${t.hero.headingPrefix} `}
                 <br className="hidden md:block" />
                 {`${t.hero.headingYour} `}
@@ -205,13 +305,33 @@ export function Home({ translations: t, locale, url }: Props) {
               <div className="mt-14 flex flex-wrap gap-4">
                 <a
                   href={`#${SECTION_ID.book}`}
-                  className="px-6 py-3 rounded-full bg-gold text-ink text-sm font-medium hover:bg-paper transition-colors"
+                  className={[
+                    'px-6',
+                    'py-3',
+                    'rounded-full',
+                    'bg-gold',
+                    'text-ink',
+                    'text-sm',
+                    'font-medium',
+                    'hover:bg-paper',
+                    'transition-colors',
+                  ].join(' ')}
                 >
                   {t.hero.bookAction}
                 </a>
                 <a
                   href={`#${SECTION_ID.services}`}
-                  className="px-6 py-3 rounded-full border border-paper/30 text-sm hover:border-gold hover:text-gold transition-colors"
+                  className={[
+                    'px-6',
+                    'py-3',
+                    'rounded-full',
+                    'border',
+                    'border-paper/30',
+                    'text-sm',
+                    'hover:border-gold',
+                    'hover:text-gold',
+                    'transition-colors',
+                  ].join(' ')}
                 >
                   {t.hero.seeServices}
                 </a>
@@ -244,9 +364,15 @@ export function Home({ translations: t, locale, url }: Props) {
                   <motion.div
                     key={service.key}
                     {...reveal}
-                    className={`border-t border-ink/15 py-6 flex justify-between items-baseline ${
-                      service.wide ? 'border-b md:col-span-2' : ''
-                    }`}
+                    className={[
+                      'border-t',
+                      'border-ink/15',
+                      'py-6',
+                      'flex',
+                      'justify-between',
+                      'items-baseline',
+                      service.wide ? 'border-b md:col-span-2' : '',
+                    ].join(' ')}
                   >
                     <div>
                       <h3 className="font-display text-xl">{item.name}</h3>
@@ -282,12 +408,29 @@ export function Home({ translations: t, locale, url }: Props) {
                 {t.work.subheading}
               </motion.p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              <div
+                className={[
+                  'grid',
+                  'grid-cols-1',
+                  'sm:grid-cols-2',
+                  'lg:grid-cols-3',
+                  'gap-4',
+                  'md:gap-6',
+                ].join(' ')}
+              >
                 {WORK.map((item) => (
                   <motion.div
                     key={item.key}
                     {...reveal}
-                    className="rounded-lg overflow-hidden flex flex-col bg-paper/3 ring-1 ring-paper/10"
+                    className={[
+                      'rounded-lg',
+                      'overflow-hidden',
+                      'flex',
+                      'flex-col',
+                      'bg-paper/3',
+                      'ring-1',
+                      'ring-paper/10',
+                    ].join(' ')}
                   >
                     <div className="relative aspect-3/4">
                       <Image
@@ -300,7 +443,15 @@ export function Home({ translations: t, locale, url }: Props) {
                     </div>
 
                     <div className="px-4 py-3">
-                      <span className="font-sans text-sm md:text-base tracking-wide text-paper/80">
+                      <span
+                        className={[
+                          'font-sans',
+                          'text-sm',
+                          'md:text-base',
+                          'tracking-wide',
+                          'text-paper/80',
+                        ].join(' ')}
+                      >
                         {t.work.items[item.key]}
                       </span>
                     </div>
@@ -328,7 +479,18 @@ export function Home({ translations: t, locale, url }: Props) {
                   {...reveal}
                   className="text-center"
                 >
-                  <div className="aspect-square rounded-full bg-ink/8 mb-5 overflow-hidden flex items-center justify-center">
+                  <div
+                    className={[
+                      'aspect-square',
+                      'rounded-full',
+                      'bg-ink/8',
+                      'mb-5',
+                      'overflow-hidden',
+                      'flex',
+                      'items-center',
+                      'justify-center',
+                    ].join(' ')}
+                  >
                     <Image
                       src={stylist.image}
                       alt={stylist.name}
@@ -357,7 +519,15 @@ export function Home({ translations: t, locale, url }: Props) {
                   <h2 className="font-display text-4xl md:text-5xl font-light mb-8">
                     {t.about.heading}
                   </h2>
-                  <div className="space-y-5 text-paper/70 text-base md:text-lg leading-relaxed">
+                  <div
+                    className={[
+                      'space-y-5',
+                      'text-paper/70',
+                      'text-base',
+                      'md:text-lg',
+                      'leading-relaxed',
+                    ].join(' ')}
+                  >
                     <p>{t.about.paragraph1}</p>
                     <p>{t.about.paragraph2}</p>
                   </div>
@@ -421,7 +591,15 @@ export function Home({ translations: t, locale, url }: Props) {
             <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
               {/* Text content */}
               <motion.div {...reveal} className="space-y-8">
-                <div className="space-y-4 text-ink/70 text-sm md:text-base leading-relaxed">
+                <div
+                  className={[
+                    'space-y-4',
+                    'text-ink/70',
+                    'text-sm',
+                    'md:text-base',
+                    'leading-relaxed',
+                  ].join(' ')}
+                >
                   {t.location.directions.map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
                   ))}
@@ -464,7 +642,17 @@ export function Home({ translations: t, locale, url }: Props) {
 
               {/* Map */}
               <motion.div {...reveal} className="space-y-4">
-                <div className="w-full aspect-square md:aspect-4/5 rounded-lg overflow-hidden ring-1 ring-ink/10">
+                <div
+                  className={[
+                    'w-full',
+                    'aspect-square',
+                    'md:aspect-4/5',
+                    'rounded-lg',
+                    'overflow-hidden',
+                    'ring-1',
+                    'ring-ink/10',
+                  ].join(' ')}
+                >
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d666.9036587482959!2d20.290000049084973!3d44.8981339508624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a67a48e3c5523%3A0x1c43e0950fa06162!2sSignature!5e0!3m2!1sen!2srs!4v1786403572686!5m2!1sen!2srs"
                     width="100%"
@@ -479,7 +667,14 @@ export function Home({ translations: t, locale, url }: Props) {
                 <a
                   href="https://maps.app.goo.gl/oeiT45tU6cUaNtNVA"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-gold hover:underline"
+                  className={[
+                    'inline-flex',
+                    'items-center',
+                    'gap-2',
+                    'text-sm',
+                    'text-gold',
+                    'hover:underline',
+                  ].join(' ')}
                 >
                   {t.location.openInMaps}
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -536,7 +731,17 @@ export function Home({ translations: t, locale, url }: Props) {
               {/* Primary CTA: phone */}
               <motion.div
                 {...reveal}
-                className="max-w-xl mx-auto mb-10 text-center border border-gold/30 rounded-2xl p-10 bg-gold/5"
+                className={[
+                  'max-w-xl',
+                  'mx-auto',
+                  'mb-10',
+                  'text-center',
+                  'border',
+                  'border-gold/30',
+                  'rounded-2xl',
+                  'p-10',
+                  'bg-gold/5',
+                ].join(' ')}
               >
                 <p className="text-gold/90 text-xs tracking-[0.3em] uppercase mb-4">
                   {t.book.fastestWay}
