@@ -16,15 +16,15 @@ import {
 } from '@/lib/constant';
 import { createStructuredData } from '@/lib/create-structured-data';
 
-import workBlackHairWaves from '@/assets/work-black-hair-waves.jpeg';
-import workBraidsWithExtensions from '@/assets/work-braids-with-extensions.jpeg';
-import workBrownHairWaves from '@/assets/work-brown-hair-waves.jpeg';
-import workChestnutHairWaves from '@/assets/work-chestnut-hair-waves.jpeg';
-import workStraightCutBlowDry from '@/assets/work-straight-cut-blow-dry.jpeg';
+import workBlackHairWaves from '@/assets/work-black-hair-waves.webp';
+import workBraidsWithExtensions from '@/assets/work-braids-with-extensions.webp';
+import workBrownHairWaves from '@/assets/work-brown-hair-waves.webp';
+import workChestnutHairWaves from '@/assets/work-chestnut-hair-waves.webp';
+import workStraightCutBlowDry from '@/assets/work-straight-cut-blow-dry.webp';
 import jelena from '@/assets/jelena.webp';
-import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
+import interiorSignatureWall from '@/assets/interior-signature-wall.webp';
 import interiorFloralsClose from '@/assets/interior-florals-close.webp';
-import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
+import interiorFloralsWide from '@/assets/interior-florals-wide.webp';
 import workHairColoringWithRevlonDyes from '@/assets/work-hair-coloring-with-revlon-dyes.webp';
 
 interface Props {
