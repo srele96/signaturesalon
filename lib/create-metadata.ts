@@ -6,6 +6,8 @@ interface CreateOpenGraphMetadataOptions {
   translations: Messages;
 }
 
+const OG_IMAGE = '/image/og-image.jpg';
+
 function createOpenGraphMetadata({
   locale,
   translations: t,
@@ -17,7 +19,7 @@ function createOpenGraphMetadata({
     siteName: 'Signature Salon',
     images: [
       {
-        url: '/image/og-image.jpg',
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
         alt: t.metadata.title,
@@ -41,7 +43,7 @@ function createTwitterMetadata({
     card: 'summary_large_image',
     title: t.metadata.title,
     description: t.metadata.description,
-    images: ['/image/og-image.jpg'],
+    images: [OG_IMAGE],
   };
 
   return metadata;
