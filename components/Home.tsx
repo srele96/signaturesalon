@@ -25,6 +25,7 @@ import jelena from '@/assets/jelena.webp';
 import interiorSignatureWall from '@/assets/interior-signature-wall.jpeg';
 import interiorFloralsClose from '@/assets/interior-florals-close.webp';
 import interiorFloralsWide from '@/assets/interior-florals-wide.jpeg';
+import workHairColoringWithRevlonDyes from '@/assets/work-hair-coloring-with-revlon-dyes.webp';
 
 interface Props {
   translations: Messages;
@@ -345,17 +346,11 @@ export function Home({ translations: t, locale, url }: Props) {
             id={SECTION_ID.services}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
-            <motion.div
-              {...reveal}
-              className="flex items-end justify-between mb-14 flex-wrap gap-4"
-            >
-              <h2 className="font-display text-4xl md:text-5xl font-light">
-                {t.services.heading}
-              </h2>
-              <p className="text-taupe text-sm max-w-xs">
-                {t.services.subheading}
-              </p>
-            </motion.div>
+            <SectionHeading
+              heading={t.services.heading}
+              subheading={t.services.subheading}
+              reveal={reveal}
+            />
 
             <div className="grid md:grid-cols-2 gap-x-16">
               {SERVICES.map((service) => {
@@ -576,17 +571,11 @@ export function Home({ translations: t, locale, url }: Props) {
             id={SECTION_ID.findUs}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
-            <motion.div
-              {...reveal}
-              className="flex items-end justify-between mb-14 flex-wrap gap-4"
-            >
-              <h2 className="font-display text-4xl md:text-5xl font-light">
-                {t.location.heading}
-              </h2>
-              <p className="text-taupe text-sm max-w-xs">
-                {t.location.subheading}
-              </p>
-            </motion.div>
+            <SectionHeading
+              heading={t.location.heading}
+              subheading={t.location.subheading}
+              reveal={reveal}
+            />
 
             <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
               {/* Text content */}
@@ -688,17 +677,11 @@ export function Home({ translations: t, locale, url }: Props) {
             id={SECTION_ID.faq}
             className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32"
           >
-            <motion.div
-              {...reveal}
-              className="flex items-end justify-between mb-14 flex-wrap gap-4"
-            >
-              <h2 className="font-display text-4xl md:text-5xl font-light">
-                {t.faqSection.heading}
-              </h2>
-              <p className="text-taupe text-sm max-w-xs">
-                {t.faqSection.subheading}
-              </p>
-            </motion.div>
+            <SectionHeading
+              heading={t.faqSection.heading}
+              subheading={t.faqSection.subheading}
+              reveal={reveal}
+            />
 
             <div className="max-w-3xl">
               {(Object.keys(t.faqSection.items) as FaqId[]).map((id) => (
@@ -1028,6 +1011,7 @@ const WORK = [
   { key: 'brownHairWaves', image: workBrownHairWaves },
   { key: 'blackHairWaves', image: workBlackHairWaves },
   { key: 'chestnutHairWaves', image: workChestnutHairWaves },
+  { key: 'hairColoringWithRevlonDyes', image: workHairColoringWithRevlonDyes },
 ] satisfies ReadonlyArray<{
   key: keyof Messages['work']['items'];
   image: StaticImageData;
@@ -1129,6 +1113,28 @@ function FaqAccordionItem({
           {item.answer}
         </p>
       </div>
+    </motion.div>
+  );
+}
+
+function SectionHeading({
+  heading,
+  subheading,
+  reveal,
+}: {
+  heading: string;
+  subheading: string;
+  reveal: RevealProps;
+}) {
+  return (
+    <motion.div
+      {...reveal}
+      className="flex items-end justify-between mb-14 flex-wrap gap-4"
+    >
+      <h2 className="font-display text-4xl md:text-5xl font-light">
+        {heading}
+      </h2>
+      <p className="text-taupe text-sm max-w-xs">{subheading}</p>
     </motion.div>
   );
 }

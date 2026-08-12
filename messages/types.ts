@@ -76,6 +76,7 @@ interface Messages {
       brownHairWaves: string;
       blackHairWaves: string;
       chestnutHairWaves: string;
+      hairColoringWithRevlonDyes: string;
     };
   };
   stylists: {

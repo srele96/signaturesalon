@@ -79,14 +79,15 @@ const messages: Messages = {
     },
   },
   work: {
-    heading: 'Recent work',
-    subheading: 'A look at the work coming out of the chair this season.',
+    heading: 'Our work',
+    subheading: 'A look at the work coming out of our salon.',
     items: {
       braidsWithExtensions: 'Braids with extensions',
       straightCutBlowDry: 'Straight cut/blow-dry',
       brownHairWaves: 'Brown hair waves',
       blackHairWaves: 'Black hair waves',
       chestnutHairWaves: 'Chestnut hair waves',
+      hairColoringWithRevlonDyes: 'Hair coloring with Revlon dyes',
     },
   },
   stylists: {
@@ -230,8 +231,8 @@ const messages: Messages = {
       parking: {
         question: 'Do you have parking?',
         answer:
-          'There are usually a few parking spots right in front of the salon ' +
-          "entrance. If those are taken, there's plenty of space nearby - " +
+          'There are 4 dedicated parking spots for salon visitors. ' +
+          "If those are taken, there's plenty of space nearby - " +
           "while unmarked, parking is generally fine as long as you don't " +
           "block an exit or park where it's explicitly prohibited.",
       },

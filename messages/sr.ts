@@ -78,14 +78,15 @@ const messages: Messages = {
     },
   },
   work: {
-    heading: 'Nedavni radovi',
-    subheading: 'Pregled radova iz salona ove sezone.',
+    heading: 'Naši radovi',
+    subheading: 'Pregled radova urađenih u našem salonu.',
     items: {
       braidsWithExtensions: 'Pletenice sa umetcima',
       straightCutBlowDry: 'Ravno šišanje/feniranje',
       brownHairWaves: 'Talasi na braon kosi',
       blackHairWaves: 'Talasi na crnoj kosi',
       chestnutHairWaves: 'Talasi na kestenjastoj kosi',
+      hairColoringWithRevlonDyes: 'Farbanje kose Revlon bojama',
     },
   },
   stylists: {
@@ -228,7 +229,7 @@ const messages: Messages = {
       parking: {
         question: 'Da li imate parking?',
         answer:
-          'Najčešće ima nekoliko parking mesta ispred ulaza u salon. Ukoliko ' +
+          'Obezbeđena su 4 parking mesta za posetioce salona. Ukoliko ' +
           'nema slobodnog mesta ispred salona, u okolini ima dosta prostora za ' +
           'parkiranje - iako nije obeleženo, može se slobodno parkirati, samo ' +
           'pazite da ne blokirate izlaz ili da parkiranje nije eksplicitno ' +
