@@ -116,10 +116,10 @@ const messages: Messages = {
   about: {
     heading: 'Built one detail at a time',
     paragraph1:
-      'Signature Salon opened in Batajnica with one idea: a chair should feel ' +
-      'considered, not rushed. Marble floors, warm light, and fresh flowers ' +
-      'greet every appointment - not for show, but because the space you sit ' +
-      'in shapes the cut you leave with.',
+      'Signature is a hair salon in Batajnica, opened with one idea: an ' +
+      'appointment should feel considered, not rushed. We take on only as much ' +
+      'as we can do properly, and nobody leaves with a cut that was finished ' +
+      'in a hurry.',
     paragraph2:
       'Every visit starts with a conversation, not a template. Whether ' +
       "it's a precision blow-dry or a full color correction, the " +

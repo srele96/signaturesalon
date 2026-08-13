@@ -115,10 +115,10 @@ const messages: Messages = {
   about: {
     heading: 'Izgrađeno detalj po detalj',
     paragraph1:
-      'Signature Salon je otvoren u Batajnici sa jednom idejom - stolica treba ' +
-      'da deluje osmišljeno, a ne užurbano. Mermerni podovi, toplo svetlo i ' +
-      'sveže cveće dočekuju svaki termin - ne radi utiska, već zato što ' +
-      'prostor u kom sedite oblikuje šišanje sa kojim odlazite.',
+      'Signature je frizerski salon u Batajnici, otvoren sa jednom idejom - ' +
+      'termin treba da deluje osmišljeno, a ne užurbano. Zato ne primamo više ' +
+      'ljudi nego što stignemo da odradimo kako treba, i niko ne odlazi sa ' +
+      'frizurom koja je završena na brzinu.',
     paragraph2:
       'Svaka poseta počinje razgovorom, a ne šablonom. Bilo da je u pitanju ' +
       'precizno feniranje ili kompletna korekcija boje, ista pažnja se ' +
