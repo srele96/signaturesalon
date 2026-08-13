@@ -2,7 +2,7 @@ import type { Messages } from './types';
 
 const messages: Messages = {
   metadata: {
-    title: 'Signature Salon',
+    title: 'Frizerski salon u Batajnici | Signature Salon',
     description:
       'Frizerski salon u Batajnici - šišanje, farbanje, balayage i muško ' +
       'šišanje. Zakazivanje po dogovoru, Pon-Sub 11-20h.',
@@ -40,6 +40,21 @@ const messages: Messages = {
       'Svaki termin se završava isto - frizurom koja je nepogrešivo vaša.',
     bookAction: 'Zakaži termin',
     seeServices: 'Pogledaj usluge',
+  },
+  intro: {
+    heading: 'Frizerski salon u Batajnici',
+    paragraph1:
+      'Signature je frizerski salon u Batajnici, sa direktnom autobuskom ' +
+      'vezom iz Zemuna, Novog Beograda, Zemun Polja i Ugrinovaca, i na ' +
+      'kratkoj vožnji od Novih Banovaca. Ceo termin vodi jedan frizer, od ' +
+      'konsultacija do poslednjeg pramena - radimo žensko i muško šišanje, ' +
+      'feniranje, farbanje Revlon Professional bojama, balayage i ' +
+      'posvetljivanje, kao i tretmane za oštećenu kosu.',
+    paragraph2:
+      'Ako tražite frizera u Batajnici bez čekanja i bez zakazivanja nedeljama ' +
+      'unapred - možete doći i sačekati svoj red, ili nas pozvati i zakazati ' +
+      'termin već za sutra. Radimo od ponedeljka do subote, 11:00-20:00, a ' +
+      'ispred salona su 4 parking mesta za naše goste.',
   },
   services: {
     heading: 'Usluge',

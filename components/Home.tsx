@@ -50,6 +50,7 @@ export function Home({ translations: t, locale, url }: Props) {
                 url,
                 priceRange: getPriceRange(SERVICES),
                 faqItems: Object.values(t.faqSection.items) as FaqItem[],
+                locale,
               }),
             ),
           }}
@@ -339,6 +340,19 @@ export function Home({ translations: t, locale, url }: Props) {
               </div>
             </div>
             <div className="hairline absolute bottom-0 inset-x-0" />
+          </section>
+
+          {/* ===== INTRO ===== */}
+          <section className="max-w-6xl mx-auto px-6 md:px-10 pt-20 md:pt-28">
+            <div className="max-w-3xl">
+              <h2 className="font-display text-3xl md:text-4xl font-light mb-6">
+                {t.intro.heading}
+              </h2>
+              <div className="space-y-5 text-ink/70 text-base md:text-lg leading-relaxed">
+                <p>{t.intro.paragraph1}</p>
+                <p>{t.intro.paragraph2}</p>
+              </div>
+            </div>
           </section>
 
           {/* ===== SERVICES ===== */}

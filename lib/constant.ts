@@ -4,6 +4,8 @@ const MOBILE_PHONE_INTL = `+${MOBILE_PHONE}`;
 const GOOGLE_REVIEW_URL =
   'https://search.google.com/local/writereview?placeid=ChIJI1U8jqRnWkcRYmGgD5XgQxw';
 
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/oeiT45tU6cUaNtNVA';
+
 const SECTION_ID = {
   top: 'top',
   services: 'services',
@@ -16,10 +18,26 @@ const SECTION_ID = {
   visit: 'visit',
 } as const;
 
+const AREA_SERVED = [
+  'Batajnica',
+  'Zemun Polje',
+  'Busije',
+  'Altina',
+  'Ugrinovci',
+  'Zemun',
+  'Novi Beograd',
+  'Novi Banovci',
+  'Nova Pazova',
+  'Dobanovci',
+  'Surčin',
+] as const;
+
 export {
   INSTAGRAM_URL,
   MOBILE_PHONE,
   MOBILE_PHONE_INTL,
   GOOGLE_REVIEW_URL,
   SECTION_ID,
+  AREA_SERVED,
+  GOOGLE_MAPS_URL,
 };

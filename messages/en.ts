@@ -2,7 +2,7 @@ import type { Messages } from './types';
 
 const messages: Messages = {
   metadata: {
-    title: 'Signature Salon',
+    title: 'Hair Salon in Batajnica, Belgrade | Signature Salon',
     description:
       'Hair salon in Batajnica, Belgrade - haircuts, coloring, ' +
       "balayage, and men's grooming. Book by appointment, Mon-Sat 11am-8pm.",
@@ -41,6 +41,21 @@ const messages: Messages = {
       "that's unmistakably yours.",
     bookAction: 'Book a chair',
     seeServices: 'See services',
+  },
+  intro: {
+    heading: 'A hair salon in Batajnica, Belgrade',
+    paragraph1:
+      'Signature is a hair salon in Batajnica, with direct bus links from ' +
+      'Zemun, Novi Beograd, Zemun Polje, and Ugrinovci, and a short drive ' +
+      'from Novi Banovci. One stylist handles your whole appointment, from ' +
+      'the consultation to the last section - cuts for women and men, ' +
+      'blow-dries, Revlon Professional color, balayage and lightening, and ' +
+      'repair treatments for damaged hair.',
+    paragraph2:
+      "If you're looking for a hairdresser in Batajnica without a weeks-long " +
+      'wait, you can walk in and wait your turn, or call and get an ' +
+      'appointment as soon as tomorrow. Open Monday to Saturday, ' +
+      '11:00-20:00, with 4 parking spots for salon guests out front.',
   },
   services: {
     heading: 'Services',

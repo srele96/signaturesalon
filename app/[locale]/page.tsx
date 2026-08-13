@@ -16,5 +16,7 @@ export default async function Page({
 
   const translations = messages[locale];
 
-  return <Home translations={translations} locale={locale} url={url().href} />;
+  const href = new URL(`/${locale}/`, url()).href;
+
+  return <Home translations={translations} locale={locale} url={href} />;
 }

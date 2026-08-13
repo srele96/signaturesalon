@@ -54,6 +54,11 @@ interface Messages {
     bookAction: string;
     seeServices: string;
   };
+  intro: {
+    heading: string;
+    paragraph1: string;
+    paragraph2: string;
+  };
   services: {
     heading: string;
     subheading: string;

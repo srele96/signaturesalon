@@ -1,16 +1,31 @@
-import { INSTAGRAM_URL, MOBILE_PHONE_INTL, SECTION_ID } from './constant';
-import { defaultLocale, type FaqItem } from '@/messages';
+import {
+  INSTAGRAM_URL,
+  MOBILE_PHONE_INTL,
+  SECTION_ID,
+  GOOGLE_MAPS_URL,
+  AREA_SERVED,
+} from './constant';
+import { type FaqItem, type Locale } from '@/messages';
 
 interface Options {
   url: string;
   priceRange: string;
   faqItems: FaqItem[];
+  locale: Locale;
 }
 
-export function createStructuredData({ url, priceRange, faqItems }: Options) {
-  const base = url.replace(/\/$/, '');
+export function createStructuredData({
+  url,
+  priceRange,
+  faqItems,
+  locale,
+}: Options) {
+  const pageUrl = new URL(url);
+  const base = pageUrl.origin;
+
   const businessId = `${base}/#business`;
   const websiteId = `${base}/#website`;
+  const faqId = new URL(`#${SECTION_ID.faq}`, url).href;
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -26,8 +41,8 @@ export function createStructuredData({ url, priceRange, faqItems }: Options) {
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Majora Zorana Radosavljevića 205',
-          addressLocality: 'Beograd',
-          addressRegion: 'Batajnica',
+          addressLocality: 'Batajnica',
+          addressRegion: 'Beograd',
           postalCode: '11273',
           addressCountry: 'RS',
         },
@@ -36,6 +51,7 @@ export function createStructuredData({ url, priceRange, faqItems }: Options) {
           latitude: 44.8979201,
           longitude: 20.2906896,
         },
+        areaServed: AREA_SERVED.map((name) => ({ '@type': 'Place', name })),
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
@@ -52,18 +68,19 @@ export function createStructuredData({ url, priceRange, faqItems }: Options) {
           },
         ],
         sameAs: [INSTAGRAM_URL],
+        hasMap: GOOGLE_MAPS_URL,
       },
       {
         '@type': 'WebSite',
         '@id': websiteId,
         url: base,
-        inLanguage: defaultLocale,
+        inLanguage: locale,
         name: 'Signature Salon',
         publisher: { '@id': businessId },
       },
       {
         '@type': 'FAQPage',
-        '@id': `${base}/#${SECTION_ID.faq}`,
+        '@id': faqId,
         mainEntity: faqItems.map((item) => ({
           '@type': 'Question',
           name: item.question,
