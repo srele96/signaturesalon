@@ -34,14 +34,19 @@ async function main() {
     }
   });
 
+  let hadError = false;
+
   const results = await Promise.allSettled(optimizers);
   results.forEach((result) => {
     if (result.status === 'fulfilled') {
       console.info(`✓ ${result.value}`);
     } else {
+      hadError = true;
       console.error(`✗ ${result.reason.message}`);
     }
   });
+
+  process.exitCode = hadError ? 1 : 0;
 }
 
 main().catch((error) => {
