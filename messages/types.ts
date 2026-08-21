@@ -82,6 +82,8 @@ interface Messages {
       blackHairWaves: string;
       chestnutHairWaves: string;
       hairColoringWithRevlonDyes: string;
+      shortLayeredWavesBack: string;
+      wavyHairSideProfile: string;
     };
   };
   stylists: {

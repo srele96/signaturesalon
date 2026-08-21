@@ -103,6 +103,8 @@ const messages: Messages = {
       blackHairWaves: 'Black hair waves',
       chestnutHairWaves: 'Chestnut hair waves',
       hairColoringWithRevlonDyes: 'Hair coloring with Revlon dyes',
+      shortLayeredWavesBack: 'Short layered waves, back view',
+      wavyHairSideProfile: 'Wavy hair, side profile',
     },
   },
   stylists: {

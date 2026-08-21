@@ -26,6 +26,8 @@ import interiorSignatureWall from '@/assets/interior-signature-wall.webp';
 import interiorFloralsClose from '@/assets/interior-florals-close.webp';
 import interiorFloralsWide from '@/assets/interior-florals-wide.webp';
 import workHairColoringWithRevlonDyes from '@/assets/work-hair-coloring-with-revlon-dyes.webp';
+import workWavyHairSideProfile from '@/assets/work-wavy-hair-side-profile.webp';
+import workShortLayeredWavesBack from '@/assets/work-short-layered-waves-back.webp';
 
 interface Props {
   translations: Messages;
@@ -1026,6 +1028,8 @@ const WORK = [
   { key: 'blackHairWaves', image: workBlackHairWaves },
   { key: 'chestnutHairWaves', image: workChestnutHairWaves },
   { key: 'hairColoringWithRevlonDyes', image: workHairColoringWithRevlonDyes },
+  { key: 'wavyHairSideProfile', image: workWavyHairSideProfile },
+  { key: 'shortLayeredWavesBack', image: workShortLayeredWavesBack },
 ] satisfies ReadonlyArray<{
   key: keyof Messages['work']['items'];
   image: StaticImageData;

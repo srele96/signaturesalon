@@ -102,6 +102,8 @@ const messages: Messages = {
       blackHairWaves: 'Talasi na crnoj kosi',
       chestnutHairWaves: 'Talasi na kestenjastoj kosi',
       hairColoringWithRevlonDyes: 'Farbanje kose Revlon bojama',
+      shortLayeredWavesBack: 'Kratko šišana, talasasta kosa, pogled otpozadi',
+      wavyHairSideProfile: 'Talasasta kosa, pogled sa strane',
     },
   },
   stylists: {
