@@ -29,6 +29,7 @@ import workHairColoringWithRevlonDyes from '@/assets/work-hair-coloring-with-rev
 import workWavyHairSideProfile from '@/assets/work-wavy-hair-side-profile.webp';
 import workShortLayeredWavesBack from '@/assets/work-short-layered-waves-back.webp';
 import workFormalBun from '@/assets/work-formal-bun.webp';
+import exteriorGlassWall from '@/assets/exterior-glass-wall.webp';
 
 interface Props {
   translations: Messages;
@@ -231,8 +232,38 @@ export function Home({ translations: t, locale, url }: Props) {
           {/* ===== HERO ===== */}
           <section
             id={SECTION_ID.top}
-            className="relative overflow-hidden bg-ink text-paper"
+            className="relative isolate overflow-hidden bg-ink text-paper"
           >
+            <Image
+              src={exteriorGlassWall}
+              alt={t.hero.imageAlt}
+              fill
+              priority
+              fetchPriority="high"
+              sizes="100vw"
+              quality={70}
+              className="-z-10 object-cover object-[65%_center] md:object-center"
+            />
+
+            {/* readability scrim */}
+            <div
+              aria-hidden="true"
+              className={[
+                'absolute',
+                'inset-0',
+                '-z-10',
+                'bg-linear-to-r',
+                'from-ink',
+                'via-ink/85',
+                'to-ink/45',
+                'md:via-ink/80',
+                'md:to-ink/25',
+              ].join(' ')}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-ink to-transparent"
+            />
             <div
               className={[
                 'max-w-6xl',

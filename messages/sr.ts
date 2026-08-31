@@ -40,6 +40,9 @@ const messages: Messages = {
       'Svaki termin se završava isto - frizurom koja je nepogrešivo vaša.',
     bookAction: 'Zakaži termin',
     seeServices: 'Pogledaj usluge',
+    imageAlt:
+      'Izlog frizerskog salona Signature u Batajnici sa ' +
+      'ugraviranim logom na staklu',
   },
   intro: {
     heading: 'Frizerski salon u Batajnici',

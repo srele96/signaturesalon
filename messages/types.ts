@@ -53,6 +53,7 @@ interface Messages {
     sigCaption: string;
     bookAction: string;
     seeServices: string;
+    imageAlt: string;
   };
   intro: {
     heading: string;

@@ -41,6 +41,9 @@ const messages: Messages = {
       "that's unmistakably yours.",
     bookAction: 'Book a chair',
     seeServices: 'See services',
+    imageAlt:
+      'Signature hair salon storefront in Batajnica, ' +
+      'with the etched logo on the glass window',
   },
   intro: {
     heading: 'A hair salon in Batajnica, Belgrade',
@@ -105,7 +108,7 @@ const messages: Messages = {
       hairColoringWithRevlonDyes: 'Hair coloring with Revlon dyes',
       shortLayeredWavesBack: 'Short layered waves, back view',
       wavyHairSideProfile: 'Wavy hair, side profile',
-      formalBun: 'Formal bun'
+      formalBun: 'Formal bun',
     },
   },
   stylists: {
