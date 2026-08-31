@@ -84,6 +84,7 @@ interface Messages {
       hairColoringWithRevlonDyes: string;
       shortLayeredWavesBack: string;
       wavyHairSideProfile: string;
+      formalBun: string;
     };
   };
   stylists: {

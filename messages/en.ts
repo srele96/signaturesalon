@@ -105,6 +105,7 @@ const messages: Messages = {
       hairColoringWithRevlonDyes: 'Hair coloring with Revlon dyes',
       shortLayeredWavesBack: 'Short layered waves, back view',
       wavyHairSideProfile: 'Wavy hair, side profile',
+      formalBun: 'Formal bun'
     },
   },
   stylists: {

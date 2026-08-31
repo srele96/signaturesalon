@@ -28,6 +28,7 @@ import interiorFloralsWide from '@/assets/interior-florals-wide.webp';
 import workHairColoringWithRevlonDyes from '@/assets/work-hair-coloring-with-revlon-dyes.webp';
 import workWavyHairSideProfile from '@/assets/work-wavy-hair-side-profile.webp';
 import workShortLayeredWavesBack from '@/assets/work-short-layered-waves-back.webp';
+import workFormalBun from '@/assets/work-formal-bun.webp';
 
 interface Props {
   translations: Messages;
@@ -1030,6 +1031,7 @@ const WORK = [
   { key: 'hairColoringWithRevlonDyes', image: workHairColoringWithRevlonDyes },
   { key: 'wavyHairSideProfile', image: workWavyHairSideProfile },
   { key: 'shortLayeredWavesBack', image: workShortLayeredWavesBack },
+  { key: 'formalBun', image: workFormalBun },
 ] satisfies ReadonlyArray<{
   key: keyof Messages['work']['items'];
   image: StaticImageData;

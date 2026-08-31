@@ -104,6 +104,7 @@ const messages: Messages = {
       hairColoringWithRevlonDyes: 'Farbanje kose Revlon bojama',
       shortLayeredWavesBack: 'Kratko šišana, talasasta kosa, pogled otpozadi',
       wavyHairSideProfile: 'Talasasta kosa, pogled sa strane',
+      formalBun: 'Svečana pundja',
     },
   },
   stylists: {
