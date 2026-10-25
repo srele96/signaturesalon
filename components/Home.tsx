@@ -30,6 +30,14 @@ import workWavyHairSideProfile from '@/assets/work-wavy-hair-side-profile.webp';
 import workShortLayeredWavesBack from '@/assets/work-short-layered-waves-back.webp';
 import workFormalBun from '@/assets/work-formal-bun.webp';
 import exteriorGlassWall from '@/assets/exterior-glass-wall.webp';
+import interiorRoundBrushesBasket from '@/assets/interior-round-brushes-basket.webp';
+import interiorStylingStationsLongView from '@/assets/interior-styling-stations-long-view.webp';
+import interiorLoungeWindowView from '@/assets/interior-lounge-window-view.webp';
+import interiorLoungeWindowViewAlt from '@/assets/interior-lounge-window-view-alt.webp';
+import interiorProductShelvesMirrors from '@/assets/interior-product-shelves-mirrors.webp';
+import interiorStylingStation from '@/assets/interior-styling-station.webp';
+import productsRevlonUniqOneEquave from '@/assets/products-revlon-uniq-one-equave.webp';
+import productsMensGrooming from '@/assets/products-mens-grooming.webp';
 
 interface Props {
   translations: Messages;
@@ -241,7 +249,6 @@ export function Home({ translations: t, locale, url }: Props) {
               priority
               fetchPriority="high"
               sizes="100vw"
-              quality={70}
               className="-z-10 object-cover object-[65%_center] md:object-center"
             />
 
@@ -589,29 +596,40 @@ export function Home({ translations: t, locale, url }: Props) {
                 </motion.div>
               </div>
 
-              <motion.div
-                {...reveal}
-                className="grid md:grid-cols-2 gap-4 md:gap-6 mt-14 md:mt-20"
+              <div
+                className={[
+                  'grid',
+                  'grid-cols-2',
+                  'lg:grid-cols-5',
+                  'gap-3',
+                  'md:gap-4',
+                  'mt-14',
+                  'md:mt-20',
+                ].join(' ')}
               >
-                <div className="relative aspect-3/4 rounded-lg overflow-hidden">
-                  <Image
-                    src={interiorFloralsWide}
-                    alt={t.about.floralsWideAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="relative aspect-3/4 rounded-lg overflow-hidden">
-                  <Image
-                    src={interiorFloralsClose}
-                    alt={t.about.floralsCloseAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-top"
-                  />
-                </div>
-              </motion.div>
+                {INTERIOR.map((item) => (
+                  <motion.div
+                    key={item.key}
+                    {...reveal}
+                    className={[
+                      'relative',
+                      'aspect-3/4',
+                      'rounded-lg',
+                      'overflow-hidden',
+                      'ring-1',
+                      'ring-paper/10',
+                    ].join(' ')}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={t.about.interior[item.key]}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 20vw"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -832,7 +850,6 @@ export function Home({ translations: t, locale, url }: Props) {
                   </p>
                   <a
                     href={`https://wa.me/${MOBILE_PHONE}?text=${encodeURIComponent(t.book.whatsappMessage)}`}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className={[
                       'mt-auto',
@@ -868,7 +885,6 @@ export function Home({ translations: t, locale, url }: Props) {
                   </p>
                   <a
                     href={INSTAGRAM_URL}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className={[
                       'mt-auto',
@@ -918,7 +934,6 @@ export function Home({ translations: t, locale, url }: Props) {
                   </p>
                   <a
                     href={GOOGLE_REVIEW_URL}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className={[
                       'mt-auto',
@@ -1077,6 +1092,22 @@ const STYLISTS = [
 ] as const satisfies ReadonlyArray<{
   key: MessagePath;
   name: string;
+  image: StaticImageData;
+}>;
+
+const INTERIOR = [
+  { key: 'stylingStationsLongView', image: interiorStylingStationsLongView },
+  { key: 'stylingStation', image: interiorStylingStation },
+  { key: 'productShelvesMirrors', image: interiorProductShelvesMirrors },
+  { key: 'loungeWindowView', image: interiorLoungeWindowView },
+  { key: 'loungeWindowViewAlt', image: interiorLoungeWindowViewAlt },
+  { key: 'floralsWide', image: interiorFloralsWide },
+  { key: 'floralsClose', image: interiorFloralsClose },
+  { key: 'roundBrushesBasket', image: interiorRoundBrushesBasket },
+  { key: 'revlonUniqOneEquave', image: productsRevlonUniqOneEquave },
+  { key: 'mensGrooming', image: productsMensGrooming },
+] satisfies ReadonlyArray<{
+  key: keyof Messages['about']['interior'];
   image: StaticImageData;
 }>;
 

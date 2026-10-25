@@ -130,8 +130,26 @@ const messages: Messages = {
       'precizno feniranje ili kompletna korekcija boje, ista pažnja se ' +
       'posvećuje najmanjim detaljima kao i najvećim promenama.',
     wallImageAlt: 'Natpis na zidu i ulaz u Signature Salon',
-    floralsWideAlt: 'Cvetni aranžman na ulazu u Signature Salon',
-    floralsCloseAlt: 'Detalj cvetnog aranžmana u Signature Salon',
+    interior: {
+      stylingStationsLongView:
+        'Unutrašnjost salona Signature sa frizerskim stolicama, ogledalima ' +
+        'i zidnim satom',
+      stylingStation:
+        'Frizerska stolica ispred ogledala, pored police sa preparatima za kosu',
+      productShelvesMirrors:
+        'Drvene police sa preparatima za kosu između dva ogledala',
+      loungeWindowView: 'Pogled kroz salon ka čekaonici i izlogu',
+      loungeWindowViewAlt:
+        'Čekaonica sa sofom pored izloga, iza frizerskih stolica',
+      floralsWide: 'Cvetni aranžman na ulazu u Signature Salon',
+      floralsClose: 'Detalj cvetnog aranžmana u Signature Salon',
+      roundBrushesBasket:
+        'Korpa sa okruglim četkama za feniranje i vizit kartom salona Signature',
+      revlonUniqOneEquave:
+        'Revlon Professional UniqOne i Equave tretmani za kosu',
+      mensGrooming:
+        'Preparati za muškarce - ulje i krema za bradu i American Crew gel',
+    },
   },
   book: {
     headingPrefix: 'Rezerviši svoju ',

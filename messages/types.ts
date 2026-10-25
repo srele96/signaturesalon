@@ -99,8 +99,18 @@ interface Messages {
     paragraph1: string;
     paragraph2: string;
     wallImageAlt: string;
-    floralsWideAlt: string;
-    floralsCloseAlt: string;
+    interior: {
+      stylingStationsLongView: string;
+      stylingStation: string;
+      productShelvesMirrors: string;
+      loungeWindowView: string;
+      loungeWindowViewAlt: string;
+      floralsWide: string;
+      floralsClose: string;
+      roundBrushesBasket: string;
+      revlonUniqOneEquave: string;
+      mensGrooming: string;
+    };
   };
   book: {
     headingPrefix: string;

@@ -131,8 +131,27 @@ const messages: Messages = {
       "it's a precision blow-dry or a full color correction, the " +
       'same care goes into the smallest details as the biggest changes.',
     wallImageAlt: 'Signature Salon wall lettering and entrance',
-    floralsWideAlt: 'Fresh floral arrangement at Signature Salon entrance',
-    floralsCloseAlt: 'Fresh floral detail at Signature Salon',
+    interior: {
+      stylingStationsLongView:
+        'Signature Salon interior with styling chairs, mirrors, and a wall ' +
+        'clock at the far end',
+      stylingStation:
+        'Styling chair in front of a framed mirror, next to a product shelf',
+      productShelvesMirrors:
+        'Wooden shelves stocked with hair care products between two mirrors',
+      loungeWindowView:
+        'View through the salon toward the waiting lounge and front window',
+      loungeWindowViewAlt:
+        'Waiting area with a sofa by the front window, seen past the styling chairs',
+      floralsWide: 'Fresh floral arrangement at Signature Salon entrance',
+      floralsClose: 'Fresh floral detail at Signature Salon',
+      roundBrushesBasket:
+        'Basket of round blow-dry brushes with a Signature Salon business card',
+      revlonUniqOneEquave:
+        'Revlon Professional UniqOne and Equave hair treatments',
+      mensGrooming:
+        "Men's grooming products - beard oil, beard moisturiser, and American Crew gel",
+    },
   },
   book: {
     headingPrefix: 'Reserve your ',
