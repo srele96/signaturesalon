@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, MotionConfig, type HTMLMotionProps } from 'motion/react';
 import Image, { type StaticImageData } from 'next/image';
+import dynamic from 'next/dynamic';
 import { translate } from '@/messages';
 import type { Messages, Locale, MessagePath, FaqItem, FaqId } from '@/messages';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -39,6 +40,10 @@ import interiorStylingStation from '@/assets/interior-styling-station.webp';
 import productsRevlonUniqOneEquave from '@/assets/products-revlon-uniq-one-equave.webp';
 import productsMensGrooming from '@/assets/products-mens-grooming.webp';
 
+const GalleryLightbox = dynamic(() => import('./GalleryLightbox'), {
+  ssr: false,
+});
+
 interface Props {
   translations: Messages;
   locale: Locale;
@@ -46,6 +51,8 @@ interface Props {
 }
 
 export function Home({ translations: t, locale, url }: Props) {
+  const [interiorIndex, setInteriorIndex] = useState(-1);
+  const [isLightboxMounted, setIsLightboxMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { reveal, dashInitial } = MOTION_CONFIG;
@@ -597,6 +604,8 @@ export function Home({ translations: t, locale, url }: Props) {
               </div>
 
               <div
+                onPointerEnter={() => void import('./GalleryLightbox')}
+                onFocus={() => void import('./GalleryLightbox')}
                 className={[
                   'grid',
                   'grid-cols-2',
@@ -607,7 +616,7 @@ export function Home({ translations: t, locale, url }: Props) {
                   'md:mt-20',
                 ].join(' ')}
               >
-                {INTERIOR.map((item) => (
+                {INTERIOR.map((item, i) => (
                   <motion.div
                     key={item.key}
                     {...reveal}
@@ -620,16 +629,40 @@ export function Home({ translations: t, locale, url }: Props) {
                       'ring-paper/10',
                     ].join(' ')}
                   >
-                    <Image
-                      src={item.image}
-                      alt={t.about.interior[item.key]}
-                      fill
-                      sizes="(max-width: 1024px) 50vw, 20vw"
-                      className="object-cover"
-                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsLightboxMounted(true);
+                        setInteriorIndex(i);
+                      }}
+                      className="group absolute inset-0 cursor-zoom-in"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={t.about.interior[item.key]}
+                        fill
+                        sizes="(max-width: 1024px) 50vw, 20vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </button>
                   </motion.div>
                 ))}
               </div>
+
+              {isLightboxMounted && (
+                <GalleryLightbox
+                  open={interiorIndex >= 0}
+                  index={Math.max(interiorIndex, 0)}
+                  close={() => setInteriorIndex(-1)}
+                  controller={{ closeOnBackdropClick: true }}
+                  slides={INTERIOR.map((item) => ({
+                    src: item.image.src,
+                    width: item.image.width,
+                    height: item.image.height,
+                    alt: t.about.interior[item.key],
+                  }))}
+                />
+              )}
             </div>
           </section>
 
